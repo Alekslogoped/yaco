@@ -7,6 +7,7 @@
 <title>Шоколадный сюрприз — звук Ц</title>
 
 <style>
+
 *{
     box-sizing:border-box;
     margin:0;
@@ -38,7 +39,9 @@ body{
     background-repeat:no-repeat;
 }
 
-/* ЗАГОЛОВОК */
+/* =========================
+   ЗАГОЛОВОК
+========================= */
 
 .title{
     position:absolute;
@@ -74,7 +77,9 @@ body{
     box-shadow:0 5px 15px rgba(0,0,0,.12);
 }
 
-/* ОСНОВНАЯ ОБЛАСТЬ */
+/* =========================
+   ОСНОВНАЯ ОБЛАСТЬ
+========================= */
 
 .play-area{
     position:absolute;
@@ -87,7 +92,9 @@ body{
     grid-template-columns:42% 58%;
 }
 
-/* ЛЕВАЯ ЧАСТЬ */
+/* =========================
+   ЛЕВАЯ ЧАСТЬ
+========================= */
 
 .left-zone{
     position:relative;
@@ -96,7 +103,9 @@ body{
     justify-content:center;
 }
 
-/* ЯЙЦО */
+/* =========================
+   ЯЙЦО
+========================= */
 
 .egg-wrapper{
     position:absolute;
@@ -111,6 +120,7 @@ body{
     cursor:pointer;
     z-index:20;
 
+    /* яйцо немного сдвинуто вправо */
     transform:translateX(35px);
 }
 
@@ -137,13 +147,16 @@ body{
     transform:scale(1.035);
 }
 
-/* ТРЯСКА ЯЙЦА */
+/* =========================
+   ТРЯСКА ЯЙЦА
+========================= */
 
 .egg-wrapper.shake .egg-closed{
     animation:eggShake .58s ease;
 }
 
 @keyframes eggShake{
+
     0%,100%{
         transform:rotate(0) scale(1);
     }
@@ -173,7 +186,9 @@ body{
     }
 }
 
-/* ПОЛОВИНКИ ЯЙЦА */
+/* =========================
+   ПОЛОВИНКИ ЯЙЦА
+========================= */
 
 .egg-half{
     position:absolute;
@@ -229,7 +244,9 @@ body{
         scale(.88);
 }
 
-/* ГЕРОЙ */
+/* =========================
+   ГЕРОЙ
+========================= */
 
 .hero{
     position:absolute;
@@ -268,6 +285,7 @@ body{
 .hero-image{
     width:100%;
     height:100%;
+
     object-fit:contain;
     pointer-events:none;
 
@@ -281,7 +299,9 @@ body{
     line-height:1;
 }
 
-/* ПОДСКАЗКА */
+/* =========================
+   ПОДСКАЗКА
+========================= */
 
 .hint{
     position:absolute;
@@ -306,7 +326,9 @@ body{
     box-shadow:0 5px 15px rgba(0,0,0,.13);
 }
 
-/* ПРАВАЯ ЧАСТЬ */
+/* =========================
+   ПРАВАЯ ЧАСТЬ
+========================= */
 
 .right-zone{
     display:flex;
@@ -325,7 +347,9 @@ body{
     gap:20px;
 }
 
-/* КАРТОЧКИ ТЕНЕЙ */
+/* =========================
+   КАРТОЧКИ ТЕНЕЙ
+========================= */
 
 .shadow-card{
     height:215px;
@@ -339,6 +363,7 @@ body{
     border-radius:28px;
 
     border:4px dashed rgba(255,255,255,.94);
+
     background:rgba(255,255,255,.28);
 
     backdrop-filter:blur(2px);
@@ -353,7 +378,9 @@ body{
     background:rgba(255,255,255,.62);
 }
 
-/* PNG-ТЕНИ */
+/* =========================
+   PNG-ТЕНИ
+========================= */
 
 .shadow-image{
     width:88%;
@@ -367,7 +394,9 @@ body{
         opacity .3s ease;
 }
 
-/* ВРЕМЕННЫЕ ЭМОДЗИ */
+/* =========================
+   ВРЕМЕННЫЕ ЭМОДЗИ
+========================= */
 
 .shadow-character{
     font-size:132px;
@@ -404,11 +433,15 @@ body{
         scaleY(1.08);
 }
 
-/* ПРАВИЛЬНЫЙ ОТВЕТ */
+/* =========================
+   ПРАВИЛЬНЫЙ ОТВЕТ
+========================= */
 
 .shadow-card.success{
     background:rgba(230,255,209,.94);
+
     border:5px solid white;
+
     transform:scale(1.04);
 }
 
@@ -419,10 +452,12 @@ body{
 .shadow-card.success .shadow-character{
     filter:none;
     opacity:1;
+
     animation:successPop .5s ease;
 }
 
 @keyframes successPop{
+
     0%{
         transform:scale(.8);
     }
@@ -436,13 +471,16 @@ body{
     }
 }
 
-/* ОШИБКА */
+/* =========================
+   ОШИБКА
+========================= */
 
 .shadow-card.wrong{
     animation:wrongShake .35s ease;
 }
 
 @keyframes wrongShake{
+
     0%,100%{
         transform:translateX(0);
     }
@@ -456,7 +494,9 @@ body{
     }
 }
 
-/* СООБЩЕНИЕ */
+/* =========================
+   СООБЩЕНИЕ
+========================= */
 
 .message{
     position:absolute;
@@ -497,7 +537,9 @@ body{
         scale(1);
 }
 
-/* КНОПКА ДАЛЬШЕ */
+/* =========================
+   КНОПКА ДАЛЬШЕ
+========================= */
 
 .next-btn{
     position:absolute;
@@ -530,7 +572,9 @@ body{
     box-shadow:0 3px 0 #dba62b;
 }
 
-/* ФИНАЛ */
+/* =========================
+   ФИНАЛ
+========================= */
 
 .finish{
     position:absolute;
@@ -582,7 +626,9 @@ body{
     cursor:pointer;
 }
 
-/* АДАПТАЦИЯ */
+/* =========================
+   АДАПТАЦИЯ
+========================= */
 
 @media(max-width:850px){
 
@@ -751,7 +797,9 @@ body{
 
 const levels = [
 
-    /* 1. ЦЫПЛЁНОК */
+    /* =====================
+       1. ЦЫПЛЁНОК
+    ===================== */
 
     {
         name:"Цыплёнок",
@@ -769,7 +817,9 @@ const levels = [
     },
 
 
-    /* 2. ЦАПЛЯ */
+    /* =====================
+       2. ЦАПЛЯ
+    ===================== */
 
     {
         name:"Цапля",
@@ -787,7 +837,9 @@ const levels = [
     },
 
 
-    /* 3. ЦИКЛОП */
+    /* =====================
+       3. ЦИКЛОП
+    ===================== */
 
     {
         name:"Циклоп",
@@ -805,16 +857,30 @@ const levels = [
     },
 
 
-    /* 4. ЦАРЬ */
+    /* =====================
+       4. ЦАРЬ
+    ===================== */
 
     {
         name:"Царь",
-        type:"emoji",
-        emoji:"🤴"
+        type:"image",
+
+        hero:
+            "heroes/car/hero.png",
+
+        shadows:[
+            "heroes/car/shadow_correct.png",
+            "heroes/car/shadow_1.png",
+            "heroes/car/shadow_2.png",
+            "heroes/car/shadow_3.png"
+        ]
     },
 
 
-    /* 5. ЦАРЕВНА */
+    /* =====================
+       5. ЦАРЕВНА
+       пока временно
+    ===================== */
 
     {
         name:"Царевна",
@@ -823,7 +889,10 @@ const levels = [
     },
 
 
-    /* 6. ЦЫГАНКА */
+    /* =====================
+       6. ЦЫГАНКА
+       пока временно
+    ===================== */
 
     {
         name:"Цыганка",
@@ -832,7 +901,10 @@ const levels = [
     },
 
 
-    /* 7. ЦЕПЬ */
+    /* =====================
+       7. ЦЕПЬ
+       пока временно
+    ===================== */
 
     {
         name:"Цепь",
@@ -841,7 +913,10 @@ const levels = [
     },
 
 
-    /* 8. ЦАРСТВО */
+    /* =====================
+       8. ЦАРСТВО
+       пока временно
+    ===================== */
 
     {
         name:"Царство",
@@ -1020,7 +1095,7 @@ function createShadows(){
                 variant;
 
 
-            /* PNG */
+            /* НАСТОЯЩИЕ PNG */
 
             if(level.type === "image"){
 
@@ -1072,7 +1147,7 @@ function createShadows(){
 
 
 /* =========================
-   ПЕРЕМЕШИВАНИЕ
+   ПЕРЕМЕШИВАЕМ ТЕНИ
 ========================= */
 
 function shuffleArray(array){
@@ -1318,7 +1393,7 @@ function dragMove(e){
 
 
 /* =========================
-   ОТПУСКАЕМ ГЕРОЯ
+   ОТПУСКАЕМ
 ========================= */
 
 function endDrag(e){
@@ -1380,7 +1455,10 @@ function endDrag(e){
         );
 
 
-    /* variant 0 = правильная тень */
+    /*
+       variant 0 =
+       правильная тень
+    */
 
     if(variant === 0){
 
@@ -1419,7 +1497,7 @@ function cancelDrag(){
 
 
 /* =========================
-   НЕПРАВИЛЬНО
+   НЕПРАВИЛЬНАЯ ТЕНЬ
 ========================= */
 
 function wrongAnswer(target){
@@ -1451,7 +1529,7 @@ function wrongAnswer(target){
 
 
 /* =========================
-   ПРАВИЛЬНО
+   ПРАВИЛЬНАЯ ТЕНЬ
 ========================= */
 
 function correctAnswer(target){
@@ -1469,7 +1547,11 @@ function correctAnswer(target){
         levels[currentLevel];
 
 
-    /* ТЕНЬ СТАНОВИТСЯ ЦВЕТНОЙ */
+    /*
+       ЧЁРНАЯ ТЕНЬ
+       ПРЕВРАЩАЕТСЯ
+       В ЦВЕТНОГО ГЕРОЯ
+    */
 
     if(level.type === "image"){
 
@@ -1609,7 +1691,7 @@ function nextLevel(){
 
 
 /* =========================
-   СТАРТ
+   СТАРТ ИГРЫ
 ========================= */
 
 createLevel();
