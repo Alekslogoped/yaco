@@ -120,7 +120,6 @@ body{
     cursor:pointer;
     z-index:20;
 
-    /* яйцо немного сдвинуто вправо */
     transform:translateX(35px);
 }
 
@@ -439,9 +438,7 @@ body{
 
 .shadow-card.success{
     background:rgba(230,255,209,.94);
-
     border:5px solid white;
-
     transform:scale(1.04);
 }
 
@@ -452,7 +449,6 @@ body{
 .shadow-card.success .shadow-character{
     filter:none;
     opacity:1;
-
     animation:successPop .5s ease;
 }
 
@@ -797,16 +793,13 @@ body{
 
 const levels = [
 
-    /* =====================
-       1. ЦЫПЛЁНОК
-    ===================== */
+    /* 1. ЦЫПЛЁНОК */
 
     {
         name:"Цыплёнок",
         type:"image",
 
-        hero:
-            "heroes/ciplenok/hero.png",
+        hero:"heroes/ciplenok/hero.png",
 
         shadows:[
             "heroes/ciplenok/shadow_correct.png",
@@ -817,16 +810,13 @@ const levels = [
     },
 
 
-    /* =====================
-       2. ЦАПЛЯ
-    ===================== */
+    /* 2. ЦАПЛЯ */
 
     {
         name:"Цапля",
         type:"image",
 
-        hero:
-            "heroes/caplya/hero.png",
+        hero:"heroes/caplya/hero.png",
 
         shadows:[
             "heroes/caplya/shadow_correct.png",
@@ -837,16 +827,13 @@ const levels = [
     },
 
 
-    /* =====================
-       3. ЦИКЛОП
-    ===================== */
+    /* 3. ЦИКЛОП */
 
     {
         name:"Циклоп",
         type:"image",
 
-        hero:
-            "heroes/ciklop/hero.png",
+        hero:"heroes/ciklop/hero.png",
 
         shadows:[
             "heroes/ciklop/shadow_correct.png",
@@ -857,16 +844,13 @@ const levels = [
     },
 
 
-    /* =====================
-       4. ЦАРЬ
-    ===================== */
+    /* 4. ЦАРЬ */
 
     {
         name:"Царь",
         type:"image",
 
-        hero:
-            "heroes/car/hero.png",
+        hero:"heroes/car/hero.png",
 
         shadows:[
             "heroes/car/shadow_correct.png",
@@ -877,22 +861,24 @@ const levels = [
     },
 
 
-    /* =====================
-       5. ЦАРЕВНА
-       пока временно
-    ===================== */
+    /* 5. ЦАРЕВНА */
 
     {
         name:"Царевна",
-        type:"emoji",
-        emoji:"👸"
+        type:"image",
+
+        hero:"heroes/carevna/hero.png",
+
+        shadows:[
+            "heroes/carevna/shadow_correct.png",
+            "heroes/carevna/shadow_1.png",
+            "heroes/carevna/shadow_2.png",
+            "heroes/carevna/shadow_3.png"
+        ]
     },
 
 
-    /* =====================
-       6. ЦЫГАНКА
-       пока временно
-    ===================== */
+    /* 6. ЦЫГАНКА */
 
     {
         name:"Цыганка",
@@ -901,10 +887,7 @@ const levels = [
     },
 
 
-    /* =====================
-       7. ЦЕПЬ
-       пока временно
-    ===================== */
+    /* 7. ЦЕПЬ */
 
     {
         name:"Цепь",
@@ -913,10 +896,7 @@ const levels = [
     },
 
 
-    /* =====================
-       8. ЦАРСТВО
-       пока временно
-    ===================== */
+    /* 8. ЦАРСТВО */
 
     {
         name:"Царство",
@@ -1095,8 +1075,6 @@ function createShadows(){
                 variant;
 
 
-            /* НАСТОЯЩИЕ PNG */
-
             if(level.type === "image"){
 
                 const img =
@@ -1115,9 +1093,6 @@ function createShadows(){
 
                 card.appendChild(img);
             }
-
-
-            /* ВРЕМЕННЫЕ ЭМОДЗИ */
 
             else{
 
@@ -1147,7 +1122,7 @@ function createShadows(){
 
 
 /* =========================
-   ПЕРЕМЕШИВАЕМ ТЕНИ
+   ПЕРЕМЕШИВАНИЕ
 ========================= */
 
 function shuffleArray(array){
@@ -1455,11 +1430,6 @@ function endDrag(e){
         );
 
 
-    /*
-       variant 0 =
-       правильная тень
-    */
-
     if(variant === 0){
 
         correctAnswer(
@@ -1547,12 +1517,6 @@ function correctAnswer(target){
         levels[currentLevel];
 
 
-    /*
-       ЧЁРНАЯ ТЕНЬ
-       ПРЕВРАЩАЕТСЯ
-       В ЦВЕТНОГО ГЕРОЯ
-    */
-
     if(level.type === "image"){
 
         const img =
@@ -1595,7 +1559,7 @@ function correctAnswer(target){
 
 
 /* =========================
-   ВОЗВРАТ ГЕРОЯ
+   ВОЗВРАЩАЕМ ГЕРОЯ
 ========================= */
 
 function returnHero(){
@@ -1691,7 +1655,7 @@ function nextLevel(){
 
 
 /* =========================
-   СТАРТ ИГРЫ
+   СТАРТ
 ========================= */
 
 createLevel();
