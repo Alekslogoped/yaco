@@ -26,10 +26,6 @@ body{
     background:#f4d7a7;
 }
 
-/* ========================================
-   ФОН
-======================================== */
-
 .game{
     width:100vw;
     height:100vh;
@@ -39,82 +35,67 @@ body{
 
     background-image:url("fon.png");
     background-size:cover;
-    background-position:center center;
+    background-position:center;
     background-repeat:no-repeat;
 }
 
-
-/* ========================================
+/* =========================
    ЗАГОЛОВОК
-======================================== */
+========================= */
 
 .title{
     position:absolute;
     z-index:30;
-
     top:16px;
     left:50%;
     transform:translateX(-50%);
 
     background:rgba(255,255,255,.93);
-
     padding:11px 27px;
-
     border-radius:30px;
 
     box-shadow:0 6px 18px rgba(0,0,0,.16);
 
     font-size:clamp(17px,2vw,26px);
     font-weight:800;
-
     color:#67371e;
-
     white-space:nowrap;
 }
 
 .counter{
     position:absolute;
-
     right:25px;
     top:20px;
-
     z-index:40;
 
     background:rgba(255,255,255,.94);
-
     padding:10px 17px;
-
     border-radius:22px;
 
     font-weight:bold;
-
     color:#754228;
 
     box-shadow:0 5px 15px rgba(0,0,0,.12);
 }
 
-
-/* ========================================
+/* =========================
    ОСНОВНАЯ ОБЛАСТЬ
-======================================== */
+========================= */
 
 .play-area{
     position:absolute;
-
     left:0;
     right:0;
     top:76px;
     bottom:12px;
 
     display:grid;
-
     grid-template-columns:42% 58%;
 }
 
-
-/* ========================================
-   ЛЕВАЯ СТОРОНА
-======================================== */
+/* =========================
+   ЛЕВАЯ ЧАСТЬ
+========================= */
 
 .left-zone{
     position:relative;
@@ -124,10 +105,9 @@ body{
     justify-content:center;
 }
 
-
-/* ========================================
-   КОНТЕЙНЕР ЯЙЦА
-======================================== */
+/* =========================
+   ЯЙЦО
+========================= */
 
 .egg-wrapper{
     position:absolute;
@@ -140,14 +120,8 @@ body{
     justify-content:center;
 
     cursor:pointer;
-
     z-index:20;
 }
-
-
-/* ========================================
-   ЦЕЛОЕ ЯЙЦО
-======================================== */
 
 .egg-closed{
     position:absolute;
@@ -159,83 +133,61 @@ body{
 
     z-index:5;
 
-    filter:
-        drop-shadow(
-            0 16px 15px rgba(70,35,15,.28)
-        );
+    filter:drop-shadow(
+        0 16px 15px rgba(70,35,15,.28)
+    );
 
     transition:
         opacity .25s ease,
         transform .3s ease;
 }
 
-
-/* лёгкое увеличение */
-
-.egg-wrapper:not(.open):hover
-.egg-closed{
+.egg-wrapper:not(.open):hover .egg-closed{
     transform:scale(1.035);
 }
 
-
-/* ========================================
+/* =========================
    ТРЯСКА
-======================================== */
+========================= */
 
-.egg-wrapper.shake
-.egg-closed{
+.egg-wrapper.shake .egg-closed{
     animation:eggShake .58s ease;
 }
 
 @keyframes eggShake{
 
     0%,100%{
-        transform:
-            rotate(0deg)
-            scale(1);
+        transform:rotate(0) scale(1);
     }
 
     15%{
-        transform:
-            rotate(-6deg)
-            scale(1.02);
+        transform:rotate(-6deg) scale(1.02);
     }
 
     30%{
-        transform:
-            rotate(6deg)
-            scale(1.02);
+        transform:rotate(6deg) scale(1.02);
     }
 
     45%{
-        transform:
-            rotate(-5deg)
-            scale(1.03);
+        transform:rotate(-5deg) scale(1.03);
     }
 
     60%{
-        transform:
-            rotate(5deg)
-            scale(1.03);
+        transform:rotate(5deg) scale(1.03);
     }
 
     75%{
-        transform:
-            rotate(-3deg)
-            scale(1.02);
+        transform:rotate(-3deg) scale(1.02);
     }
 
     90%{
-        transform:
-            rotate(3deg)
-            scale(1.01);
+        transform:rotate(3deg) scale(1.01);
     }
 }
 
-
-/* ========================================
-   ПОЛОВИНКИ
-======================================== */
+/* =========================
+   ПОЛОВИНКИ ЯЙЦА
+========================= */
 
 .egg-half{
     position:absolute;
@@ -246,116 +198,80 @@ body{
     object-fit:contain;
 
     opacity:0;
-
     pointer-events:none;
 
-    filter:
-        drop-shadow(
-            0 14px 13px rgba(70,35,15,.22)
-        );
+    filter:drop-shadow(
+        0 14px 13px rgba(70,35,15,.22)
+    );
 
     transition:
         transform .85s cubic-bezier(.2,.8,.25,1),
         opacity .18s ease;
 }
 
-
-/* левая */
-
 .egg-left{
     z-index:4;
 
     transform:
         translateX(0)
-        rotate(0deg)
+        rotate(0)
         scale(.95);
 }
-
-
-/* правая */
 
 .egg-right{
     z-index:4;
 
     transform:
         translateX(0)
-        rotate(0deg)
+        rotate(0)
         scale(.95);
 }
 
-
-/* ========================================
-   СОСТОЯНИЕ OPEN
-======================================== */
-
-.egg-wrapper.open
-.egg-closed{
+.egg-wrapper.open .egg-closed{
     opacity:0;
-
     transform:scale(.9);
-
     pointer-events:none;
 }
 
-
-.egg-wrapper.open
-.egg-half{
+.egg-wrapper.open .egg-half{
     opacity:1;
 }
 
-
-/* левая половинка уходит влево */
-
-.egg-wrapper.open
-.egg-left{
+.egg-wrapper.open .egg-left{
     transform:
         translateX(-125px)
         rotate(-13deg)
         scale(.88);
 }
 
-
-/* правая половинка вправо */
-
-.egg-wrapper.open
-.egg-right{
+.egg-wrapper.open .egg-right{
     transform:
         translateX(125px)
         rotate(13deg)
         scale(.88);
 }
 
-
-/* ========================================
+/* =========================
    ГЕРОЙ
-======================================== */
+========================= */
 
 .hero{
     position:absolute;
 
-    width:175px;
-    height:175px;
+    width:190px;
+    height:190px;
 
     display:flex;
     align-items:center;
     justify-content:center;
 
-    font-size:130px;
-
     z-index:100;
 
     opacity:0;
-
     transform:scale(.15);
 
     cursor:grab;
-
     touch-action:none;
-
-    filter:
-        drop-shadow(
-            0 10px 8px rgba(0,0,0,.2)
-        );
 
     transition:
         opacity .4s ease,
@@ -369,22 +285,39 @@ body{
 
 .hero.dragging{
     cursor:grabbing;
-
     transition:none;
-
     z-index:5000;
 }
 
+/* PNG ГЕРОЯ */
 
-/* ========================================
+.hero-image{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+
+    pointer-events:none;
+
+    filter:drop-shadow(
+        0 9px 7px rgba(0,0,0,.18)
+    );
+}
+
+/* тестовые эмодзи следующих раундов */
+
+.hero-emoji{
+    font-size:130px;
+    line-height:1;
+}
+
+/* =========================
    ПОДСКАЗКА
-======================================== */
+========================= */
 
 .hint{
     position:absolute;
 
     bottom:17px;
-
     left:50%;
     transform:translateX(-50%);
 
@@ -405,43 +338,35 @@ body{
 
     min-width:310px;
 
-    box-shadow:
-        0 5px 15px rgba(0,0,0,.13);
+    box-shadow:0 5px 15px rgba(0,0,0,.13);
 }
 
-
-/* ========================================
+/* =========================
    ПРАВАЯ ЧАСТЬ
-======================================== */
+========================= */
 
 .right-zone{
     display:flex;
-
     align-items:center;
     justify-content:center;
 
-    padding:
-        20px 35px 48px 15px;
+    padding:20px 35px 48px 15px;
 }
-
 
 .shadow-grid{
     width:100%;
-
     max-width:690px;
 
     display:grid;
 
-    grid-template-columns:
-        repeat(2,1fr);
+    grid-template-columns:repeat(2,1fr);
 
     gap:20px;
 }
 
-
-/* ========================================
+/* =========================
    КАРТОЧКА ТЕНИ
-======================================== */
+========================= */
 
 .shadow-card{
     height:215px;
@@ -454,11 +379,9 @@ body{
 
     border-radius:28px;
 
-    border:
-        4px dashed rgba(255,255,255,.94);
+    border:4px dashed rgba(255,255,255,.94);
 
-    background:
-        rgba(255,255,255,.28);
+    background:rgba(255,255,255,.28);
 
     backdrop-filter:blur(2px);
 
@@ -467,18 +390,32 @@ body{
         background .22s ease;
 }
 
-
 .shadow-card.hover{
     transform:scale(1.045);
 
-    background:
-        rgba(255,255,255,.62);
+    background:rgba(255,255,255,.62);
 }
 
+/* =========================
+   НАСТОЯЩИЕ PNG-ТЕНИ
+========================= */
 
-/* ========================================
+.shadow-image{
+    width:88%;
+    height:88%;
+
+    object-fit:contain;
+
+    pointer-events:none;
+
+    transition:
+        transform .3s ease,
+        opacity .3s ease;
+}
+
+/* =========================
    ТЕСТОВЫЕ ТЕНИ
-======================================== */
+========================= */
 
 .shadow-character{
     font-size:132px;
@@ -486,7 +423,6 @@ body{
     line-height:1;
 
     display:flex;
-
     align-items:center;
     justify-content:center;
 
@@ -495,26 +431,14 @@ body{
         brightness(.06);
 
     opacity:.72;
-
-    transition:.3s;
 }
-
-
-/*
-   ВРЕМЕННЫЕ ВАРИАНТЫ.
-
-   Позже вместо них будут
-   настоящие PNG-тени.
-*/
-
 
 .variant-0{
     transform:scale(1);
 }
 
 .variant-1{
-    transform:
-        scale(.82);
+    transform:scale(.82);
 }
 
 .variant-2{
@@ -529,32 +453,28 @@ body{
         scaleY(1.08);
 }
 
-
-/* ========================================
-   ПРАВИЛЬНО
-======================================== */
+/* =========================
+   ПРАВИЛЬНЫЙ ОТВЕТ
+========================= */
 
 .shadow-card.success{
-    background:
-        rgba(230,255,209,.94);
+    background:rgba(230,255,209,.94);
 
-    border:
-        5px solid white;
+    border:5px solid white;
 
     transform:scale(1.04);
 }
 
-
-.shadow-card.success
-.shadow-character{
-    filter:none;
-
-    opacity:1;
-
-    animation:
-        successPop .5s ease;
+.shadow-card.success .shadow-image{
+    animation:successPop .5s ease;
 }
 
+.shadow-card.success .shadow-character{
+    filter:none;
+    opacity:1;
+
+    animation:successPop .5s ease;
+}
 
 @keyframes successPop{
 
@@ -571,16 +491,13 @@ body{
     }
 }
 
-
-/* ========================================
+/* =========================
    ОШИБКА
-======================================== */
+========================= */
 
 .shadow-card.wrong{
-    animation:
-        wrongShake .35s ease;
+    animation:wrongShake .35s ease;
 }
-
 
 @keyframes wrongShake{
 
@@ -597,10 +514,9 @@ body{
     }
 }
 
-
-/* ========================================
+/* =========================
    СООБЩЕНИЕ
-======================================== */
+========================= */
 
 .message{
     position:absolute;
@@ -620,9 +536,7 @@ body{
 
     border-radius:30px;
 
-    font-size:
-        clamp(24px,3vw,42px);
-
+    font-size:clamp(24px,3vw,42px);
     font-weight:800;
 
     color:#69391f;
@@ -637,7 +551,6 @@ body{
     transition:.25s;
 }
 
-
 .message.show{
     opacity:1;
 
@@ -646,10 +559,9 @@ body{
         scale(1);
 }
 
-
-/* ========================================
+/* =========================
    КНОПКА ДАЛЬШЕ
-======================================== */
+========================= */
 
 .next-btn{
     position:absolute;
@@ -674,28 +586,23 @@ body{
 
     cursor:pointer;
 
-    box-shadow:
-        0 7px 0 #dba62b;
+    box-shadow:0 7px 0 #dba62b;
 
     display:none;
 }
 
-
 .next-btn:active{
     transform:translateY(4px);
 
-    box-shadow:
-        0 3px 0 #dba62b;
+    box-shadow:0 3px 0 #dba62b;
 }
 
-
-/* ========================================
+/* =========================
    ФИНАЛ
-======================================== */
+========================= */
 
 .finish{
     position:absolute;
-
     inset:0;
 
     z-index:9000;
@@ -703,26 +610,21 @@ body{
     display:none;
 
     flex-direction:column;
-
     align-items:center;
     justify-content:center;
 
     text-align:center;
 
-    background:
-        rgba(255,245,215,.94);
+    background:rgba(255,245,215,.94);
 }
 
-
 .finish-title{
-    font-size:
-        clamp(38px,6vw,75px);
+    font-size:clamp(38px,6vw,75px);
 
     font-weight:900;
 
     color:#69381e;
 }
-
 
 .finish-icons{
     font-size:120px;
@@ -730,14 +632,11 @@ body{
     margin:20px 0;
 }
 
-
 .finish-text{
-    font-size:
-        clamp(21px,3vw,32px);
+    font-size:clamp(21px,3vw,32px);
 
     color:#865438;
 }
-
 
 .restart{
     margin-top:25px;
@@ -758,16 +657,14 @@ body{
     cursor:pointer;
 }
 
-
-/* ========================================
+/* =========================
    АДАПТАЦИЯ
-======================================== */
+========================= */
 
 @media(max-width:850px){
 
     .play-area{
-        grid-template-columns:
-            40% 60%;
+        grid-template-columns:40% 60%;
     }
 
     .egg-wrapper{
@@ -787,15 +684,16 @@ body{
     }
 
     .hero{
-        width:120px;
-        height:120px;
+        width:125px;
+        height:125px;
+    }
 
+    .hero-emoji{
         font-size:90px;
     }
 
     .hint{
         font-size:14px;
-
         min-width:210px;
     }
 }
@@ -803,290 +701,232 @@ body{
 </style>
 </head>
 
-
 <body>
 
 <div class="game">
-
-
-<!-- ==================================
-     ЗАГОЛОВОК
-================================== -->
 
 <div class="title">
 🍫 Шоколадный сюрприз — звук Ц
 </div>
 
-
-<div
-class="counter"
-id="counter">
-
+<div class="counter" id="counter">
 1 / 8
-
 </div>
-
 
 <div class="play-area">
 
-
-<!-- ==================================
+<!-- =========================
      ЛЕВАЯ ЧАСТЬ
-================================== -->
+========================= -->
 
 <div class="left-zone">
 
-
 <div
-class="egg-wrapper"
-id="eggWrapper">
-
-
-<!-- ЦЕЛОЕ ЯЙЦО -->
-
-<img
-src="egg/egg_closed.png"
-class="egg-closed"
-alt=""
-draggable="false"
+    class="egg-wrapper"
+    id="eggWrapper"
 >
 
-
-<!-- ЛЕВАЯ ПОЛОВИНКА -->
-
 <img
-src="egg/egg_left.png"
-class="egg-half egg-left"
-alt=""
-draggable="false"
+    src="egg/egg_closed.png"
+    class="egg-closed"
+    alt=""
+    draggable="false"
 >
 
-
-<!-- ПРАВАЯ ПОЛОВИНКА -->
-
 <img
-src="egg/egg_right.png"
-class="egg-half egg-right"
-alt=""
-draggable="false"
+    src="egg/egg_left.png"
+    class="egg-half egg-left"
+    alt=""
+    draggable="false"
 >
 
+<img
+    src="egg/egg_right.png"
+    class="egg-half egg-right"
+    alt=""
+    draggable="false"
+>
 
 </div>
 
-
-<!-- ГЕРОЙ -->
+<div
+    class="hero"
+    id="hero"
+></div>
 
 <div
-class="hero"
-id="hero">
-</div>
-
-
-<!-- ПОДСКАЗКА -->
-
-<div
-class="hint"
-id="hint">
-
+    class="hint"
+    id="hint"
+>
 Нажми на шоколадное яйцо!
+</div>
 
 </div>
 
-
-</div>
-
-
-<!-- ==================================
+<!-- =========================
      ПРАВАЯ ЧАСТЬ
-================================== -->
+========================= -->
 
 <div class="right-zone">
 
+<div
+    class="shadow-grid"
+    id="shadowGrid"
+></div>
+
+</div>
+
+</div>
 
 <div
-class="shadow-grid"
-id="shadowGrid">
-</div>
-
-
-</div>
-
-
-</div>
-
-
-<!-- СООБЩЕНИЕ -->
-
-<div
-class="message"
-id="message">
-</div>
-
-
-<!-- ДАЛЬШЕ -->
+    class="message"
+    id="message"
+></div>
 
 <button
-class="next-btn"
-id="nextBtn">
-
+    class="next-btn"
+    id="nextBtn"
+>
 Следующий сюрприз →
-
 </button>
 
-
-<!-- ==================================
+<!-- =========================
      ФИНАЛ
-================================== -->
+========================= -->
 
 <div
-class="finish"
-id="finish">
-
+    class="finish"
+    id="finish"
+>
 
 <div class="finish-title">
-
 Все сюрпризы найдены!
-
 </div>
-
 
 <div class="finish-icons">
-
 🎉 🍫 👑
-
 </div>
-
 
 <div class="finish-text">
-
 Ты нашёл все правильные тени!
-
 </div>
-
 
 <button
-class="restart"
-onclick="location.reload()">
-
+    class="restart"
+    onclick="location.reload()"
+>
 Играть ещё раз
-
 </button>
 
-
 </div>
 
-
 </div>
-
 
 <script>
 
-
-/* ========================================
-   НАШИ 8 РАУНДОВ
-======================================== */
+/* =========================================
+   УРОВНИ
+========================================= */
 
 const levels = [
 
+    /* 1 — НАСТОЯЩИЙ ЦЫПЛЁНОК */
+
     {
         name:"Цыплёнок",
-        emoji:"🐥"
+
+        type:"image",
+
+        hero:
+            "heroes/ciplenok/hero.png",
+
+        shadows:[
+            "heroes/ciplenok/shadow_correct.png",
+            "heroes/ciplenok/shadow_1.png",
+            "heroes/ciplenok/shadow_2.png",
+            "heroes/ciplenok/shadow_3.png"
+        ]
     },
+
+    /* остальные пока тестовые */
 
     {
         name:"Цапля",
+        type:"emoji",
         emoji:"🪿"
     },
 
     {
         name:"Циклоп",
+        type:"emoji",
         emoji:"👹"
     },
 
     {
         name:"Царь",
+        type:"emoji",
         emoji:"🤴"
     },
 
     {
         name:"Царевна",
+        type:"emoji",
         emoji:"👸"
     },
 
     {
         name:"Цыганка",
+        type:"emoji",
         emoji:"💃"
     },
 
     {
         name:"Цепь",
+        type:"emoji",
         emoji:"🔗"
     },
 
     {
         name:"Царство",
+        type:"emoji",
         emoji:"🏰"
     }
 
 ];
 
 
-/* ========================================
+/* =========================================
    ЭЛЕМЕНТЫ
-======================================== */
+========================================= */
 
 const eggWrapper =
-document.getElementById(
-    "eggWrapper"
-);
-
+    document.getElementById("eggWrapper");
 
 const hero =
-document.getElementById(
-    "hero"
-);
-
+    document.getElementById("hero");
 
 const shadowGrid =
-document.getElementById(
-    "shadowGrid"
-);
-
+    document.getElementById("shadowGrid");
 
 const hint =
-document.getElementById(
-    "hint"
-);
-
+    document.getElementById("hint");
 
 const counter =
-document.getElementById(
-    "counter"
-);
-
+    document.getElementById("counter");
 
 const message =
-document.getElementById(
-    "message"
-);
-
+    document.getElementById("message");
 
 const nextBtn =
-document.getElementById(
-    "nextBtn"
-);
-
+    document.getElementById("nextBtn");
 
 const finish =
-document.getElementById(
-    "finish"
-);
+    document.getElementById("finish");
 
 
-/* ========================================
+/* =========================================
    СОСТОЯНИЕ
-======================================== */
+========================================= */
 
 let currentLevel = 0;
 
@@ -1094,10 +934,20 @@ let eggOpened = false;
 
 let completed = false;
 
+let dragging = false;
 
-/* ========================================
-   СОЗДАЁМ РАУНД
-======================================== */
+let grabOffsetX = 0;
+
+let grabOffsetY = 0;
+
+let originalLeft = 0;
+
+let originalTop = 0;
+
+
+/* =========================================
+   СОЗДАЁМ УРОВЕНЬ
+========================================= */
 
 function createLevel(){
 
@@ -1105,154 +955,187 @@ function createLevel(){
 
     completed = false;
 
+    dragging = false;
 
-    eggWrapper.classList.remove(
-        "open"
-    );
+    eggWrapper.classList.remove("open");
 
+    eggWrapper.classList.remove("shake");
 
-    eggWrapper.classList.remove(
-        "shake"
-    );
+    hero.classList.remove("show");
 
+    hero.classList.remove("dragging");
 
-    hero.classList.remove(
-        "show"
-    );
+    hero.style.display = "flex";
 
-
-    hero.style.display =
-        "flex";
-
-
-    hero.style.position =
-        "absolute";
-
+    hero.style.position = "absolute";
 
     hero.style.left = "";
 
     hero.style.top = "";
 
+    hero.style.transition = "";
 
-    hero.innerHTML =
-        levels[currentLevel]
-        .emoji;
+    hero.innerHTML = "";
 
+    nextBtn.style.display = "none";
 
-    counter.innerHTML =
+    counter.textContent =
         (currentLevel + 1)
-        +
-        " / "
-        +
-        levels.length;
+        + " / "
+        + levels.length;
 
-
-    hint.innerHTML =
+    hint.textContent =
         "Нажми на шоколадное яйцо!";
 
-
-    nextBtn.style.display =
-        "none";
-
+    createHero();
 
     createShadows();
-
 }
 
 
-/* ========================================
+/* =========================================
+   СОЗДАЁМ ГЕРОЯ
+========================================= */
+
+function createHero(){
+
+    const level =
+        levels[currentLevel];
+
+    hero.innerHTML = "";
+
+    if(level.type === "image"){
+
+        const img =
+            document.createElement("img");
+
+        img.src =
+            level.hero;
+
+        img.className =
+            "hero-image";
+
+        img.alt =
+            level.name;
+
+        img.draggable =
+            false;
+
+        hero.appendChild(img);
+    }
+
+    else{
+
+        const emoji =
+            document.createElement("div");
+
+        emoji.className =
+            "hero-emoji";
+
+        emoji.textContent =
+            level.emoji;
+
+        hero.appendChild(emoji);
+    }
+}
+
+
+/* =========================================
    СОЗДАЁМ 4 ТЕНИ
-======================================== */
+========================================= */
 
 function createShadows(){
 
     shadowGrid.innerHTML = "";
 
+    const level =
+        levels[currentLevel];
 
-    /*
-       0 = правильная тень
-
-       1, 2, 3 =
-       неправильные варианты
-    */
-
-
-    let variants = [
-        0,
-        1,
-        2,
-        3
-    ];
-
+    let variants =
+        [0,1,2,3];
 
     variants =
-        shuffleArray(
-            variants
-        );
-
+        shuffleArray(variants);
 
     variants.forEach(
         variant => {
 
+            const card =
+                document.createElement("div");
 
-        const card =
-            document.createElement(
-                "div"
+            card.className =
+                "shadow-card";
+
+            card.dataset.variant =
+                variant;
+
+
+            /*
+               НАСТОЯЩИЕ PNG
+            */
+
+            if(level.type === "image"){
+
+                const img =
+                    document.createElement("img");
+
+                img.src =
+                    level.shadows[variant];
+
+                img.className =
+                    "shadow-image";
+
+                img.alt = "";
+
+                img.draggable =
+                    false;
+
+                card.appendChild(img);
+            }
+
+
+            /*
+               ТЕСТОВЫЕ ЭМОДЗИ
+            */
+
+            else{
+
+                const character =
+                    document.createElement("div");
+
+                character.className =
+                    "shadow-character variant-"
+                    + variant;
+
+                character.textContent =
+                    level.emoji;
+
+                card.appendChild(
+                    character
+                );
+            }
+
+
+            shadowGrid.appendChild(
+                card
             );
-
-
-        card.className =
-            "shadow-card";
-
-
-        card.dataset.variant =
-            variant;
-
-
-        const character =
-            document.createElement(
-                "div"
-            );
-
-
-        character.className =
-            "shadow-character variant-"
-            +
-            variant;
-
-
-        character.innerHTML =
-            levels[currentLevel]
-            .emoji;
-
-
-        card.appendChild(
-            character
-        );
-
-
-        shadowGrid.appendChild(
-            card
-        );
-
-    });
-
+        }
+    );
 }
 
 
-/* ========================================
-   ПЕРЕМЕШИВАЕМ ТЕНИ
-======================================== */
+/* =========================================
+   ПЕРЕМЕШИВАЕМ
+========================================= */
 
 function shuffleArray(array){
 
     const newArray =
         [...array];
 
-
     for(
         let i =
-        newArray.length - 1;
+            newArray.length - 1;
 
         i > 0;
 
@@ -1266,7 +1149,6 @@ function shuffleArray(array){
                 (i + 1)
             );
 
-
         [
             newArray[i],
             newArray[j]
@@ -1276,18 +1158,15 @@ function shuffleArray(array){
             newArray[j],
             newArray[i]
         ];
-
     }
 
-
     return newArray;
-
 }
 
 
-/* ========================================
-   ОТКРЫТИЕ ЯЙЦА
-======================================== */
+/* =========================================
+   ОТКРЫВАЕМ ЯЙЦО
+========================================= */
 
 eggWrapper.addEventListener(
     "click",
@@ -1301,108 +1180,70 @@ function openEgg(){
         return;
     }
 
-
     eggOpened = true;
-
-
-    /*
-       ТРЯСКА
-    */
 
     eggWrapper.classList.add(
         "shake"
     );
 
-
-    hint.innerHTML =
+    hint.textContent =
         "Что спряталось внутри?";
 
 
-    /*
-       ПОСЛЕ ТРЯСКИ
-       ОТКРЫВАЕМ ЯЙЦО
-    */
-
     setTimeout(
         () => {
-
 
             eggWrapper.classList.remove(
                 "shake"
             );
 
-
             eggWrapper.classList.add(
                 "open"
             );
-
 
         },
         600
     );
 
 
-    /*
-       ПОКАЗЫВАЕМ ГЕРОЯ
-    */
-
     setTimeout(
         () => {
-
 
             hero.classList.add(
                 "show"
             );
 
-
-            hint.innerHTML =
+            hint.textContent =
                 "Назови: «"
                 +
-                levels[currentLevel]
-                .name
+                levels[currentLevel].name
                 +
                 "». Найди точно такую же тень!";
-
 
         },
         1250
     );
-
 }
 
 
-/* ========================================
-   DRAG & DROP
-======================================== */
-
-let dragging = false;
-
-let grabOffsetX = 0;
-
-let grabOffsetY = 0;
-
-let originalLeft = 0;
-
-let originalTop = 0;
-
+/* =========================================
+   DRAG
+========================================= */
 
 hero.addEventListener(
     "pointerdown",
     startDrag
 );
 
-
 hero.addEventListener(
     "pointermove",
     dragMove
 );
 
-
 hero.addEventListener(
     "pointerup",
     endDrag
 );
-
 
 hero.addEventListener(
     "pointercancel",
@@ -1410,9 +1251,9 @@ hero.addEventListener(
 );
 
 
-/* ========================================
-   НАЧАЛО ПЕРЕТАСКИВАНИЯ
-======================================== */
+/* =========================================
+   НАЧАЛО DRAG
+========================================= */
 
 function startDrag(e){
 
@@ -1424,69 +1265,51 @@ function startDrag(e){
         return;
     }
 
-
     e.preventDefault();
 
-
     dragging = true;
-
 
     hero.setPointerCapture(
         e.pointerId
     );
 
-
     const rect =
-        hero
-        .getBoundingClientRect();
-
+        hero.getBoundingClientRect();
 
     originalLeft =
         rect.left;
 
-
     originalTop =
         rect.top;
-
 
     grabOffsetX =
         e.clientX
         -
         rect.left;
 
-
     grabOffsetY =
         e.clientY
         -
         rect.top;
 
-
     hero.style.position =
         "fixed";
 
-
     hero.style.left =
-        rect.left
-        +
-        "px";
-
+        rect.left + "px";
 
     hero.style.top =
-        rect.top
-        +
-        "px";
-
+        rect.top + "px";
 
     hero.classList.add(
         "dragging"
     );
-
 }
 
 
-/* ========================================
-   ПЕРЕМЕЩЕНИЕ
-======================================== */
+/* =========================================
+   ДВИЖЕНИЕ
+========================================= */
 
 function dragMove(e){
 
@@ -1494,9 +1317,7 @@ function dragMove(e){
         return;
     }
 
-
     e.preventDefault();
-
 
     hero.style.left =
         (
@@ -1504,9 +1325,7 @@ function dragMove(e){
             -
             grabOffsetX
         )
-        +
-        "px";
-
+        + "px";
 
     hero.style.top =
         (
@@ -1514,8 +1333,7 @@ function dragMove(e){
             -
             grabOffsetY
         )
-        +
-        "px";
+        + "px";
 
 
     document
@@ -1525,16 +1343,13 @@ function dragMove(e){
     .forEach(
         card => {
 
-
             card.classList.remove(
                 "hover"
             );
 
-
             const rect =
                 card
                 .getBoundingClientRect();
-
 
             if(
                 e.clientX >= rect.left
@@ -1549,18 +1364,15 @@ function dragMove(e){
                 card.classList.add(
                     "hover"
                 );
-
             }
-
         }
     );
-
 }
 
 
-/* ========================================
-   ОТПУСКАЕМ ГЕРОЯ
-======================================== */
+/* =========================================
+   ОТПУСКАЕМ
+========================================= */
 
 function endDrag(e){
 
@@ -1568,17 +1380,13 @@ function endDrag(e){
         return;
     }
 
-
     dragging = false;
-
 
     hero.classList.remove(
         "dragging"
     );
 
-
     let target = null;
-
 
     document
     .querySelectorAll(
@@ -1587,16 +1395,13 @@ function endDrag(e){
     .forEach(
         card => {
 
-
             card.classList.remove(
                 "hover"
             );
 
-
             const rect =
                 card
                 .getBoundingClientRect();
-
 
             if(
                 e.clientX >= rect.left
@@ -1609,9 +1414,7 @@ function endDrag(e){
             ){
 
                 target = card;
-
             }
-
         }
     );
 
@@ -1626,18 +1429,21 @@ function endDrag(e){
 
     const variant =
         Number(
-            target
-            .dataset
-            .variant
+            target.dataset.variant
         );
 
+
+    /*
+       ВАЖНО:
+       shadow_correct.png
+       имеет индекс 0
+    */
 
     if(variant === 0){
 
         correctAnswer(
             target
         );
-
     }
 
     else{
@@ -1645,15 +1451,13 @@ function endDrag(e){
         wrongAnswer(
             target
         );
-
     }
-
 }
 
 
-/* ========================================
-   ОТМЕНА
-======================================== */
+/* =========================================
+   CANCEL
+========================================= */
 
 function cancelDrag(){
 
@@ -1661,23 +1465,19 @@ function cancelDrag(){
         return;
     }
 
-
     dragging = false;
-
 
     hero.classList.remove(
         "dragging"
     );
 
-
     returnHero();
-
 }
 
 
-/* ========================================
+/* =========================================
    НЕПРАВИЛЬНО
-======================================== */
+========================================= */
 
 function wrongAnswer(target){
 
@@ -1685,134 +1485,128 @@ function wrongAnswer(target){
         "wrong"
     );
 
-
-    message.innerHTML =
+    message.textContent =
         "Посмотри внимательнее 😊";
-
 
     showMessage();
 
-
     setTimeout(
         () => {
-
 
             target.classList.remove(
                 "wrong"
             );
 
-
         },
         400
     );
 
-
     returnHero();
-
 }
 
 
-/* ========================================
+/* =========================================
    ПРАВИЛЬНО
-======================================== */
+========================================= */
 
 function correctAnswer(target){
 
     completed = true;
 
-
     target.classList.add(
         "success"
     );
 
-
     hero.style.display =
         "none";
 
+    /*
+       Для настоящего PNG
+       правильная тень
+       превращается в героя.
+    */
 
-    message.innerHTML =
+    const level =
+        levels[currentLevel];
+
+    if(level.type === "image"){
+
+        const img =
+            target.querySelector(
+                ".shadow-image"
+            );
+
+        if(img){
+
+            img.src =
+                level.hero;
+        }
+    }
+
+
+    message.textContent =
         "Точно! ⭐";
-
 
     showMessage();
 
-
-    hint.innerHTML =
+    hint.textContent =
         "Правильно! Это «"
         +
-        levels[currentLevel]
-        .name
+        level.name
         +
         "».";
-
 
     setTimeout(
         () => {
 
-
             nextBtn.style.display =
                 "block";
-
 
         },
         700
     );
-
 }
 
 
-/* ========================================
-   ВОЗВРАЩАЕМ ГЕРОЯ
-======================================== */
+/* =========================================
+   ВОЗВРАТ ГЕРОЯ
+========================================= */
 
 function returnHero(){
 
     hero.style.transition =
         "left .35s ease, top .35s ease";
 
-
     hero.style.left =
-        originalLeft
-        +
-        "px";
-
+        originalLeft + "px";
 
     hero.style.top =
-        originalTop
-        +
-        "px";
-
+        originalTop + "px";
 
     setTimeout(
         () => {
 
-
             hero.style.position =
                 "absolute";
-
 
             hero.style.left =
                 "";
 
-
             hero.style.top =
                 "";
-
 
             hero.style.transition =
                 "";
 
-
         },
         370
     );
-
 }
 
 
-/* ========================================
+/* =========================================
    СООБЩЕНИЕ
-======================================== */
+========================================= */
 
 function showMessage(){
 
@@ -1820,26 +1614,22 @@ function showMessage(){
         "show"
     );
 
-
     setTimeout(
         () => {
-
 
             message.classList.remove(
                 "show"
             );
 
-
         },
         1100
     );
-
 }
 
 
-/* ========================================
+/* =========================================
    СЛЕДУЮЩИЙ РАУНД
-======================================== */
+========================================= */
 
 nextBtn.addEventListener(
     "click",
@@ -1851,7 +1641,6 @@ function nextLevel(){
 
     currentLevel++;
 
-
     if(
         currentLevel
         >=
@@ -1862,21 +1651,17 @@ function nextLevel(){
             "flex";
 
         return;
-
     }
 
-
     createLevel();
-
 }
 
 
-/* ========================================
+/* =========================================
    СТАРТ
-======================================== */
+========================================= */
 
 createLevel();
-
 
 </script>
 
