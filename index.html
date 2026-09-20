@@ -7,7 +7,6 @@
 <title>Шоколадный сюрприз — звук Ц</title>
 
 <style>
-
 *{
     box-sizing:border-box;
     margin:0;
@@ -39,9 +38,7 @@ body{
     background-repeat:no-repeat;
 }
 
-/* =========================
-   ЗАГОЛОВОК
-========================= */
+/* ЗАГОЛОВОК */
 
 .title{
     position:absolute;
@@ -77,9 +74,7 @@ body{
     box-shadow:0 5px 15px rgba(0,0,0,.12);
 }
 
-/* =========================
-   ОСНОВНАЯ ОБЛАСТЬ
-========================= */
+/* ОСНОВНАЯ ОБЛАСТЬ */
 
 .play-area{
     position:absolute;
@@ -92,9 +87,7 @@ body{
     grid-template-columns:42% 58%;
 }
 
-/* =========================
-   ЛЕВАЯ ЧАСТЬ
-========================= */
+/* ЛЕВАЯ ЧАСТЬ */
 
 .left-zone{
     position:relative;
@@ -103,9 +96,7 @@ body{
     justify-content:center;
 }
 
-/* =========================
-   ЯЙЦО
-========================= */
+/* ЯЙЦО */
 
 .egg-wrapper{
     position:absolute;
@@ -120,7 +111,6 @@ body{
     cursor:pointer;
     z-index:20;
 
-    /* сдвиг яйца вправо */
     transform:translateX(35px);
 }
 
@@ -147,16 +137,13 @@ body{
     transform:scale(1.035);
 }
 
-/* =========================
-   ТРЯСКА
-========================= */
+/* ТРЯСКА ЯЙЦА */
 
 .egg-wrapper.shake .egg-closed{
     animation:eggShake .58s ease;
 }
 
 @keyframes eggShake{
-
     0%,100%{
         transform:rotate(0) scale(1);
     }
@@ -186,9 +173,7 @@ body{
     }
 }
 
-/* =========================
-   ПОЛОВИНКИ ЯЙЦА
-========================= */
+/* ПОЛОВИНКИ ЯЙЦА */
 
 .egg-half{
     position:absolute;
@@ -212,20 +197,12 @@ body{
 
 .egg-left{
     z-index:4;
-
-    transform:
-        translateX(0)
-        rotate(0)
-        scale(.95);
+    transform:translateX(0) rotate(0) scale(.95);
 }
 
 .egg-right{
     z-index:4;
-
-    transform:
-        translateX(0)
-        rotate(0)
-        scale(.95);
+    transform:translateX(0) rotate(0) scale(.95);
 }
 
 .egg-wrapper.open .egg-closed{
@@ -252,9 +229,7 @@ body{
         scale(.88);
 }
 
-/* =========================
-   ГЕРОЙ
-========================= */
+/* ГЕРОЙ */
 
 .hero{
     position:absolute;
@@ -293,7 +268,6 @@ body{
 .hero-image{
     width:100%;
     height:100%;
-
     object-fit:contain;
     pointer-events:none;
 
@@ -307,9 +281,7 @@ body{
     line-height:1;
 }
 
-/* =========================
-   ПОДСКАЗКА
-========================= */
+/* ПОДСКАЗКА */
 
 .hint{
     position:absolute;
@@ -321,7 +293,6 @@ body{
     z-index:300;
 
     background:rgba(255,255,255,.94);
-
     padding:11px 20px;
     border-radius:25px;
 
@@ -335,9 +306,7 @@ body{
     box-shadow:0 5px 15px rgba(0,0,0,.13);
 }
 
-/* =========================
-   ПРАВАЯ ЧАСТЬ
-========================= */
+/* ПРАВАЯ ЧАСТЬ */
 
 .right-zone{
     display:flex;
@@ -353,13 +322,10 @@ body{
 
     display:grid;
     grid-template-columns:repeat(2,1fr);
-
     gap:20px;
 }
 
-/* =========================
-   КАРТОЧКИ ТЕНЕЙ
-========================= */
+/* КАРТОЧКИ ТЕНЕЙ */
 
 .shadow-card{
     height:215px;
@@ -373,7 +339,6 @@ body{
     border-radius:28px;
 
     border:4px dashed rgba(255,255,255,.94);
-
     background:rgba(255,255,255,.28);
 
     backdrop-filter:blur(2px);
@@ -388,16 +353,13 @@ body{
     background:rgba(255,255,255,.62);
 }
 
-/* =========================
-   PNG-ТЕНИ
-========================= */
+/* PNG-ТЕНИ */
 
 .shadow-image{
     width:88%;
     height:88%;
 
     object-fit:contain;
-
     pointer-events:none;
 
     transition:
@@ -405,9 +367,7 @@ body{
         opacity .3s ease;
 }
 
-/* =========================
-   ТЕСТОВЫЕ ЭМОДЗИ-ТЕНИ
-========================= */
+/* ВРЕМЕННЫЕ ЭМОДЗИ */
 
 .shadow-character{
     font-size:132px;
@@ -444,15 +404,11 @@ body{
         scaleY(1.08);
 }
 
-/* =========================
-   ПРАВИЛЬНО
-========================= */
+/* ПРАВИЛЬНЫЙ ОТВЕТ */
 
 .shadow-card.success{
     background:rgba(230,255,209,.94);
-
     border:5px solid white;
-
     transform:scale(1.04);
 }
 
@@ -463,12 +419,10 @@ body{
 .shadow-card.success .shadow-character{
     filter:none;
     opacity:1;
-
     animation:successPop .5s ease;
 }
 
 @keyframes successPop{
-
     0%{
         transform:scale(.8);
     }
@@ -482,16 +436,13 @@ body{
     }
 }
 
-/* =========================
-   ОШИБКА
-========================= */
+/* ОШИБКА */
 
 .shadow-card.wrong{
     animation:wrongShake .35s ease;
 }
 
 @keyframes wrongShake{
-
     0%,100%{
         transform:translateX(0);
     }
@@ -505,9 +456,7 @@ body{
     }
 }
 
-/* =========================
-   СООБЩЕНИЕ
-========================= */
+/* СООБЩЕНИЕ */
 
 .message{
     position:absolute;
@@ -524,7 +473,6 @@ body{
     background:white;
 
     padding:20px 35px;
-
     border-radius:30px;
 
     font-size:clamp(24px,3vw,42px);
@@ -536,7 +484,6 @@ body{
         0 15px 40px rgba(0,0,0,.25);
 
     opacity:0;
-
     pointer-events:none;
 
     transition:.25s;
@@ -550,9 +497,7 @@ body{
         scale(1);
 }
 
-/* =========================
-   КНОПКА ДАЛЬШЕ
-========================= */
+/* КНОПКА ДАЛЬШЕ */
 
 .next-btn{
     position:absolute;
@@ -582,13 +527,10 @@ body{
 
 .next-btn:active{
     transform:translateY(4px);
-
     box-shadow:0 3px 0 #dba62b;
 }
 
-/* =========================
-   ФИНАЛ
-========================= */
+/* ФИНАЛ */
 
 .finish{
     position:absolute;
@@ -609,21 +551,17 @@ body{
 
 .finish-title{
     font-size:clamp(38px,6vw,75px);
-
     font-weight:900;
-
     color:#69381e;
 }
 
 .finish-icons{
     font-size:120px;
-
     margin:20px 0;
 }
 
 .finish-text{
     font-size:clamp(21px,3vw,32px);
-
     color:#865438;
 }
 
@@ -633,7 +571,6 @@ body{
     border:none;
 
     padding:15px 30px;
-
     border-radius:30px;
 
     background:#ffd044;
@@ -645,9 +582,7 @@ body{
     cursor:pointer;
 }
 
-/* =========================
-   АДАПТАЦИЯ
-========================= */
+/* АДАПТАЦИЯ */
 
 @media(max-width:850px){
 
@@ -695,121 +630,123 @@ body{
 
 <div class="game">
 
-<div class="title">
-🍫 Шоколадный сюрприз — звук Ц
+    <div class="title">
+        🍫 Шоколадный сюрприз — звук Ц
+    </div>
+
+    <div class="counter" id="counter">
+        1 / 8
+    </div>
+
+    <div class="play-area">
+
+        <!-- ЛЕВАЯ ЧАСТЬ -->
+
+        <div class="left-zone">
+
+            <div
+                class="egg-wrapper"
+                id="eggWrapper"
+            >
+
+                <img
+                    src="egg/egg_closed.png"
+                    class="egg-closed"
+                    alt=""
+                    draggable="false"
+                >
+
+                <img
+                    src="egg/egg_left.png"
+                    class="egg-half egg-left"
+                    alt=""
+                    draggable="false"
+                >
+
+                <img
+                    src="egg/egg_right.png"
+                    class="egg-half egg-right"
+                    alt=""
+                    draggable="false"
+                >
+
+            </div>
+
+            <div
+                class="hero"
+                id="hero"
+            ></div>
+
+            <div
+                class="hint"
+                id="hint"
+            >
+                Нажми на шоколадное яйцо!
+            </div>
+
+        </div>
+
+        <!-- ПРАВАЯ ЧАСТЬ -->
+
+        <div class="right-zone">
+
+            <div
+                class="shadow-grid"
+                id="shadowGrid"
+            ></div>
+
+        </div>
+
+    </div>
+
+    <div
+        class="message"
+        id="message"
+    ></div>
+
+    <button
+        class="next-btn"
+        id="nextBtn"
+    >
+        Следующий сюрприз →
+    </button>
+
+
+    <!-- ФИНАЛ -->
+
+    <div
+        class="finish"
+        id="finish"
+    >
+
+        <div class="finish-title">
+            Все сюрпризы найдены!
+        </div>
+
+        <div class="finish-icons">
+            🎉 🍫 👑
+        </div>
+
+        <div class="finish-text">
+            Ты нашёл все правильные тени!
+        </div>
+
+        <button
+            class="restart"
+            onclick="location.reload()"
+        >
+            Играть ещё раз
+        </button>
+
+    </div>
+
 </div>
 
-<div class="counter" id="counter">
-1 / 8
-</div>
-
-<div class="play-area">
-
-<!-- ЛЕВАЯ ЧАСТЬ -->
-
-<div class="left-zone">
-
-<div
-    class="egg-wrapper"
-    id="eggWrapper"
->
-
-<img
-    src="egg/egg_closed.png"
-    class="egg-closed"
-    alt=""
-    draggable="false"
->
-
-<img
-    src="egg/egg_left.png"
-    class="egg-half egg-left"
-    alt=""
-    draggable="false"
->
-
-<img
-    src="egg/egg_right.png"
-    class="egg-half egg-right"
-    alt=""
-    draggable="false"
->
-
-</div>
-
-<div
-    class="hero"
-    id="hero"
-></div>
-
-<div
-    class="hint"
-    id="hint"
->
-Нажми на шоколадное яйцо!
-</div>
-
-</div>
-
-<!-- ПРАВАЯ ЧАСТЬ -->
-
-<div class="right-zone">
-
-<div
-    class="shadow-grid"
-    id="shadowGrid"
-></div>
-
-</div>
-
-</div>
-
-<div
-    class="message"
-    id="message"
-></div>
-
-<button
-    class="next-btn"
-    id="nextBtn"
->
-Следующий сюрприз →
-</button>
-
-<!-- ФИНАЛ -->
-
-<div
-    class="finish"
-    id="finish"
->
-
-<div class="finish-title">
-Все сюрпризы найдены!
-</div>
-
-<div class="finish-icons">
-🎉 🍫 👑
-</div>
-
-<div class="finish-text">
-Ты нашёл все правильные тени!
-</div>
-
-<button
-    class="restart"
-    onclick="location.reload()"
->
-Играть ещё раз
-</button>
-
-</div>
-
-</div>
 
 <script>
 
 /* =========================
-   8 РАУНДОВ
+   УРОВНИ
 ========================= */
 
 const levels = [
@@ -831,6 +768,7 @@ const levels = [
         ]
     },
 
+
     /* 2. ЦАПЛЯ */
 
     {
@@ -848,13 +786,24 @@ const levels = [
         ]
     },
 
+
     /* 3. ЦИКЛОП */
 
     {
         name:"Циклоп",
-        type:"emoji",
-        emoji:"👹"
+        type:"image",
+
+        hero:
+            "heroes/ciklop/hero.png",
+
+        shadows:[
+            "heroes/ciklop/shadow_correct.png",
+            "heroes/ciklop/shadow_1.png",
+            "heroes/ciklop/shadow_2.png",
+            "heroes/ciklop/shadow_3.png"
+        ]
     },
+
 
     /* 4. ЦАРЬ */
 
@@ -864,6 +813,7 @@ const levels = [
         emoji:"🤴"
     },
 
+
     /* 5. ЦАРЕВНА */
 
     {
@@ -871,6 +821,7 @@ const levels = [
         type:"emoji",
         emoji:"👸"
     },
+
 
     /* 6. ЦЫГАНКА */
 
@@ -880,6 +831,7 @@ const levels = [
         emoji:"💃"
     },
 
+
     /* 7. ЦЕПЬ */
 
     {
@@ -887,6 +839,7 @@ const levels = [
         type:"emoji",
         emoji:"🔗"
     },
+
 
     /* 8. ЦАРСТВО */
 
@@ -1053,6 +1006,7 @@ function createShadows(){
     variants =
         shuffleArray(variants);
 
+
     variants.forEach(
         variant => {
 
@@ -1066,7 +1020,7 @@ function createShadows(){
                 variant;
 
 
-            /* НАСТОЯЩИЕ PNG */
+            /* PNG */
 
             if(level.type === "image"){
 
@@ -1088,7 +1042,7 @@ function createShadows(){
             }
 
 
-            /* ТЕСТОВЫЕ ЭМОДЗИ */
+            /* ВРЕМЕННЫЕ ЭМОДЗИ */
 
             else{
 
@@ -1107,6 +1061,7 @@ function createShadows(){
                     character
                 );
             }
+
 
             shadowGrid.appendChild(
                 card
@@ -1164,6 +1119,7 @@ eggWrapper.addEventListener(
     "click",
     openEgg
 );
+
 
 function openEgg(){
 
@@ -1299,7 +1255,7 @@ function startDrag(e){
 
 
 /* =========================
-   ПЕРЕМЕЩЕНИЕ
+   ДВИЖЕНИЕ
 ========================= */
 
 function dragMove(e){
@@ -1362,7 +1318,7 @@ function dragMove(e){
 
 
 /* =========================
-   ОТПУСКАЕМ
+   ОТПУСКАЕМ ГЕРОЯ
 ========================= */
 
 function endDrag(e){
@@ -1414,7 +1370,6 @@ function endDrag(e){
     if(!target){
 
         returnHero();
-
         return;
     }
 
@@ -1425,9 +1380,7 @@ function endDrag(e){
         );
 
 
-    /*
-       0 = правильная тень
-    */
+    /* variant 0 = правильная тень */
 
     if(variant === 0){
 
@@ -1516,10 +1469,7 @@ function correctAnswer(target){
         levels[currentLevel];
 
 
-    /*
-       Правильная тень
-       становится цветным героем
-    */
+    /* ТЕНЬ СТАНОВИТСЯ ЦВЕТНОЙ */
 
     if(level.type === "image"){
 
@@ -1563,7 +1513,7 @@ function correctAnswer(target){
 
 
 /* =========================
-   ВОЗВРАЩАЕМ ГЕРОЯ
+   ВОЗВРАТ ГЕРОЯ
 ========================= */
 
 function returnHero(){
@@ -1634,6 +1584,7 @@ nextBtn.addEventListener(
     "click",
     nextLevel
 );
+
 
 function nextLevel(){
 
