@@ -53,7 +53,6 @@ body{
     background:rgba(255,255,255,.93);
     padding:11px 27px;
     border-radius:30px;
-
     box-shadow:0 6px 18px rgba(0,0,0,.16);
 
     font-size:clamp(17px,2vw,26px);
@@ -99,21 +98,21 @@ body{
 
 .left-zone{
     position:relative;
-
     display:flex;
     align-items:center;
     justify-content:center;
 }
 
 /* =========================
-   ЯЙЦО
+   ЯЙЦО — УВЕЛИЧЕНО И
+   СДВИНУТО ВПРАВО
 ========================= */
 
 .egg-wrapper{
     position:absolute;
 
-    width:390px;
-    height:470px;
+    width:430px;
+    height:510px;
 
     display:flex;
     align-items:center;
@@ -121,12 +120,18 @@ body{
 
     cursor:pointer;
     z-index:20;
+
+    /* СДВИГ ВПРАВО */
+    transform:translateX(35px);
 }
+
+/* ЦЕЛОЕ ЯЙЦО */
 
 .egg-closed{
     position:absolute;
 
-    width:285px;
+    /* БЫЛО 285px */
+    width:330px;
     height:auto;
 
     object-fit:contain;
@@ -147,7 +152,7 @@ body{
 }
 
 /* =========================
-   ТРЯСКА
+   ТРЯСКА ЯЙЦА
 ========================= */
 
 .egg-wrapper.shake .egg-closed{
@@ -192,7 +197,8 @@ body{
 .egg-half{
     position:absolute;
 
-    width:245px;
+    /* БЫЛО 245px */
+    width:285px;
     height:auto;
 
     object-fit:contain;
@@ -237,16 +243,18 @@ body{
     opacity:1;
 }
 
+/* половинки расходятся немного шире */
+
 .egg-wrapper.open .egg-left{
     transform:
-        translateX(-125px)
+        translateX(-145px)
         rotate(-13deg)
         scale(.88);
 }
 
 .egg-wrapper.open .egg-right{
     transform:
-        translateX(125px)
+        translateX(145px)
         rotate(13deg)
         scale(.88);
 }
@@ -289,21 +297,16 @@ body{
     z-index:5000;
 }
 
-/* PNG ГЕРОЯ */
-
 .hero-image{
     width:100%;
     height:100%;
     object-fit:contain;
-
     pointer-events:none;
 
     filter:drop-shadow(
         0 9px 7px rgba(0,0,0,.18)
     );
 }
-
-/* тестовые эмодзи следующих раундов */
 
 .hero-emoji{
     font-size:130px;
@@ -324,18 +327,14 @@ body{
     z-index:300;
 
     background:rgba(255,255,255,.94);
-
     padding:11px 20px;
-
     border-radius:25px;
 
     font-size:17px;
     font-weight:bold;
-
     color:#704126;
 
     text-align:center;
-
     min-width:310px;
 
     box-shadow:0 5px 15px rgba(0,0,0,.13);
@@ -358,9 +357,7 @@ body{
     max-width:690px;
 
     display:grid;
-
     grid-template-columns:repeat(2,1fr);
-
     gap:20px;
 }
 
@@ -392,12 +389,11 @@ body{
 
 .shadow-card.hover{
     transform:scale(1.045);
-
     background:rgba(255,255,255,.62);
 }
 
 /* =========================
-   НАСТОЯЩИЕ PNG-ТЕНИ
+   PNG-ТЕНИ
 ========================= */
 
 .shadow-image{
@@ -405,7 +401,6 @@ body{
     height:88%;
 
     object-fit:contain;
-
     pointer-events:none;
 
     transition:
@@ -419,7 +414,6 @@ body{
 
 .shadow-character{
     font-size:132px;
-
     line-height:1;
 
     display:flex;
@@ -533,7 +527,6 @@ body{
     background:white;
 
     padding:20px 35px;
-
     border-radius:30px;
 
     font-size:clamp(24px,3vw,42px);
@@ -545,7 +538,6 @@ body{
         0 15px 40px rgba(0,0,0,.25);
 
     opacity:0;
-
     pointer-events:none;
 
     transition:.25s;
@@ -572,13 +564,11 @@ body{
     bottom:23px;
 
     border:none;
-
     border-radius:30px;
 
     padding:15px 27px;
 
     background:#ffd044;
-
     color:#63391f;
 
     font-size:19px;
@@ -620,21 +610,17 @@ body{
 
 .finish-title{
     font-size:clamp(38px,6vw,75px);
-
     font-weight:900;
-
     color:#69381e;
 }
 
 .finish-icons{
     font-size:120px;
-
     margin:20px 0;
 }
 
 .finish-text{
     font-size:clamp(21px,3vw,32px);
-
     color:#865438;
 }
 
@@ -648,7 +634,6 @@ body{
     border-radius:30px;
 
     background:#ffd044;
-
     color:#63391f;
 
     font-size:20px;
@@ -668,7 +653,9 @@ body{
     }
 
     .egg-wrapper{
-        transform:scale(.72);
+        transform:
+            translateX(25px)
+            scale(.72);
     }
 
     .shadow-grid{
@@ -715,9 +702,7 @@ body{
 
 <div class="play-area">
 
-<!-- =========================
-     ЛЕВАЯ ЧАСТЬ
-========================= -->
+<!-- ЛЕВАЯ ЧАСТЬ -->
 
 <div class="left-zone">
 
@@ -763,9 +748,7 @@ body{
 
 </div>
 
-<!-- =========================
-     ПРАВАЯ ЧАСТЬ
-========================= -->
+<!-- ПРАВАЯ ЧАСТЬ -->
 
 <div class="right-zone">
 
@@ -790,9 +773,7 @@ body{
 Следующий сюрприз →
 </button>
 
-<!-- =========================
-     ФИНАЛ
-========================= -->
+<!-- ФИНАЛ -->
 
 <div
     class="finish"
@@ -824,17 +805,14 @@ body{
 
 <script>
 
-/* =========================================
+/* =========================
    УРОВНИ
-========================================= */
+========================= */
 
 const levels = [
 
-    /* 1 — НАСТОЯЩИЙ ЦЫПЛЁНОК */
-
     {
         name:"Цыплёнок",
-
         type:"image",
 
         hero:
@@ -847,8 +825,6 @@ const levels = [
             "heroes/ciplenok/shadow_3.png"
         ]
     },
-
-    /* остальные пока тестовые */
 
     {
         name:"Цапля",
@@ -895,9 +871,9 @@ const levels = [
 ];
 
 
-/* =========================================
+/* =========================
    ЭЛЕМЕНТЫ
-========================================= */
+========================= */
 
 const eggWrapper =
     document.getElementById("eggWrapper");
@@ -924,55 +900,44 @@ const finish =
     document.getElementById("finish");
 
 
-/* =========================================
+/* =========================
    СОСТОЯНИЕ
-========================================= */
+========================= */
 
 let currentLevel = 0;
 
 let eggOpened = false;
-
 let completed = false;
 
 let dragging = false;
 
 let grabOffsetX = 0;
-
 let grabOffsetY = 0;
 
 let originalLeft = 0;
-
 let originalTop = 0;
 
 
-/* =========================================
+/* =========================
    СОЗДАЁМ УРОВЕНЬ
-========================================= */
+========================= */
 
 function createLevel(){
 
     eggOpened = false;
-
     completed = false;
-
     dragging = false;
 
     eggWrapper.classList.remove("open");
-
     eggWrapper.classList.remove("shake");
 
     hero.classList.remove("show");
-
     hero.classList.remove("dragging");
 
     hero.style.display = "flex";
-
     hero.style.position = "absolute";
-
     hero.style.left = "";
-
     hero.style.top = "";
-
     hero.style.transition = "";
 
     hero.innerHTML = "";
@@ -988,14 +953,13 @@ function createLevel(){
         "Нажми на шоколадное яйцо!";
 
     createHero();
-
     createShadows();
 }
 
 
-/* =========================================
-   СОЗДАЁМ ГЕРОЯ
-========================================= */
+/* =========================
+   ГЕРОЙ
+========================= */
 
 function createHero(){
 
@@ -1040,9 +1004,9 @@ function createHero(){
 }
 
 
-/* =========================================
-   СОЗДАЁМ 4 ТЕНИ
-========================================= */
+/* =========================
+   4 ТЕНИ
+========================= */
 
 function createShadows(){
 
@@ -1070,10 +1034,6 @@ function createShadows(){
                 variant;
 
 
-            /*
-               НАСТОЯЩИЕ PNG
-            */
-
             if(level.type === "image"){
 
                 const img =
@@ -1093,11 +1053,6 @@ function createShadows(){
                 card.appendChild(img);
             }
 
-
-            /*
-               ТЕСТОВЫЕ ЭМОДЗИ
-            */
-
             else{
 
                 const character =
@@ -1115,7 +1070,6 @@ function createShadows(){
                 );
             }
 
-
             shadowGrid.appendChild(
                 card
             );
@@ -1124,9 +1078,9 @@ function createShadows(){
 }
 
 
-/* =========================================
-   ПЕРЕМЕШИВАЕМ
-========================================= */
+/* =========================
+   ПЕРЕМЕШИВАНИЕ
+========================= */
 
 function shuffleArray(array){
 
@@ -1164,15 +1118,14 @@ function shuffleArray(array){
 }
 
 
-/* =========================================
-   ОТКРЫВАЕМ ЯЙЦО
-========================================= */
+/* =========================
+   ОТКРЫТИЕ ЯЙЦА
+========================= */
 
 eggWrapper.addEventListener(
     "click",
     openEgg
 );
-
 
 function openEgg(){
 
@@ -1189,7 +1142,6 @@ function openEgg(){
     hint.textContent =
         "Что спряталось внутри?";
 
-
     setTimeout(
         () => {
 
@@ -1204,7 +1156,6 @@ function openEgg(){
         },
         600
     );
-
 
     setTimeout(
         () => {
@@ -1226,9 +1177,9 @@ function openEgg(){
 }
 
 
-/* =========================================
+/* =========================
    DRAG
-========================================= */
+========================= */
 
 hero.addEventListener(
     "pointerdown",
@@ -1250,10 +1201,6 @@ hero.addEventListener(
     cancelDrag
 );
 
-
-/* =========================================
-   НАЧАЛО DRAG
-========================================= */
 
 function startDrag(e){
 
@@ -1307,9 +1254,9 @@ function startDrag(e){
 }
 
 
-/* =========================================
+/* =========================
    ДВИЖЕНИЕ
-========================================= */
+========================= */
 
 function dragMove(e){
 
@@ -1334,7 +1281,6 @@ function dragMove(e){
             grabOffsetY
         )
         + "px";
-
 
     document
     .querySelectorAll(
@@ -1370,9 +1316,9 @@ function dragMove(e){
 }
 
 
-/* =========================================
+/* =========================
    ОТПУСКАЕМ
-========================================= */
+========================= */
 
 function endDrag(e){
 
@@ -1422,7 +1368,6 @@ function endDrag(e){
     if(!target){
 
         returnHero();
-
         return;
     }
 
@@ -1432,12 +1377,6 @@ function endDrag(e){
             target.dataset.variant
         );
 
-
-    /*
-       ВАЖНО:
-       shadow_correct.png
-       имеет индекс 0
-    */
 
     if(variant === 0){
 
@@ -1455,9 +1394,9 @@ function endDrag(e){
 }
 
 
-/* =========================================
+/* =========================
    CANCEL
-========================================= */
+========================= */
 
 function cancelDrag(){
 
@@ -1475,9 +1414,9 @@ function cancelDrag(){
 }
 
 
-/* =========================================
-   НЕПРАВИЛЬНО
-========================================= */
+/* =========================
+   ОШИБКА
+========================= */
 
 function wrongAnswer(target){
 
@@ -1505,9 +1444,9 @@ function wrongAnswer(target){
 }
 
 
-/* =========================================
+/* =========================
    ПРАВИЛЬНО
-========================================= */
+========================= */
 
 function correctAnswer(target){
 
@@ -1520,12 +1459,6 @@ function correctAnswer(target){
     hero.style.display =
         "none";
 
-    /*
-       Для настоящего PNG
-       правильная тень
-       превращается в героя.
-    */
-
     const level =
         levels[currentLevel];
 
@@ -1537,12 +1470,10 @@ function correctAnswer(target){
             );
 
         if(img){
-
             img.src =
                 level.hero;
         }
     }
-
 
     message.textContent =
         "Точно! ⭐";
@@ -1568,9 +1499,9 @@ function correctAnswer(target){
 }
 
 
-/* =========================================
-   ВОЗВРАТ ГЕРОЯ
-========================================= */
+/* =========================
+   ВОЗВРАТ
+========================= */
 
 function returnHero(){
 
@@ -1589,11 +1520,8 @@ function returnHero(){
             hero.style.position =
                 "absolute";
 
-            hero.style.left =
-                "";
-
-            hero.style.top =
-                "";
+            hero.style.left = "";
+            hero.style.top = "";
 
             hero.style.transition =
                 "";
@@ -1604,9 +1532,9 @@ function returnHero(){
 }
 
 
-/* =========================================
+/* =========================
    СООБЩЕНИЕ
-========================================= */
+========================= */
 
 function showMessage(){
 
@@ -1627,15 +1555,14 @@ function showMessage(){
 }
 
 
-/* =========================================
+/* =========================
    СЛЕДУЮЩИЙ РАУНД
-========================================= */
+========================= */
 
 nextBtn.addEventListener(
     "click",
     nextLevel
 );
-
 
 function nextLevel(){
 
@@ -1657,9 +1584,9 @@ function nextLevel(){
 }
 
 
-/* =========================================
+/* =========================
    СТАРТ
-========================================= */
+========================= */
 
 createLevel();
 
