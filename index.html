@@ -104,8 +104,7 @@ body{
 }
 
 /* =========================
-   ЯЙЦО — УВЕЛИЧЕНО И
-   СДВИНУТО ВПРАВО
+   ЯЙЦО
 ========================= */
 
 .egg-wrapper{
@@ -121,16 +120,13 @@ body{
     cursor:pointer;
     z-index:20;
 
-    /* СДВИГ ВПРАВО */
+    /* сдвиг яйца вправо */
     transform:translateX(35px);
 }
-
-/* ЦЕЛОЕ ЯЙЦО */
 
 .egg-closed{
     position:absolute;
 
-    /* БЫЛО 285px */
     width:330px;
     height:auto;
 
@@ -152,7 +148,7 @@ body{
 }
 
 /* =========================
-   ТРЯСКА ЯЙЦА
+   ТРЯСКА
 ========================= */
 
 .egg-wrapper.shake .egg-closed{
@@ -197,7 +193,6 @@ body{
 .egg-half{
     position:absolute;
 
-    /* БЫЛО 245px */
     width:285px;
     height:auto;
 
@@ -242,8 +237,6 @@ body{
 .egg-wrapper.open .egg-half{
     opacity:1;
 }
-
-/* половинки расходятся немного шире */
 
 .egg-wrapper.open .egg-left{
     transform:
@@ -300,6 +293,7 @@ body{
 .hero-image{
     width:100%;
     height:100%;
+
     object-fit:contain;
     pointer-events:none;
 
@@ -327,6 +321,7 @@ body{
     z-index:300;
 
     background:rgba(255,255,255,.94);
+
     padding:11px 20px;
     border-radius:25px;
 
@@ -358,11 +353,12 @@ body{
 
     display:grid;
     grid-template-columns:repeat(2,1fr);
+
     gap:20px;
 }
 
 /* =========================
-   КАРТОЧКА ТЕНИ
+   КАРТОЧКИ ТЕНЕЙ
 ========================= */
 
 .shadow-card{
@@ -401,6 +397,7 @@ body{
     height:88%;
 
     object-fit:contain;
+
     pointer-events:none;
 
     transition:
@@ -409,7 +406,7 @@ body{
 }
 
 /* =========================
-   ТЕСТОВЫЕ ТЕНИ
+   ТЕСТОВЫЕ ЭМОДЗИ-ТЕНИ
 ========================= */
 
 .shadow-character{
@@ -448,7 +445,7 @@ body{
 }
 
 /* =========================
-   ПРАВИЛЬНЫЙ ОТВЕТ
+   ПРАВИЛЬНО
 ========================= */
 
 .shadow-card.success{
@@ -527,6 +524,7 @@ body{
     background:white;
 
     padding:20px 35px;
+
     border-radius:30px;
 
     font-size:clamp(24px,3vw,42px);
@@ -538,6 +536,7 @@ body{
         0 15px 40px rgba(0,0,0,.25);
 
     opacity:0;
+
     pointer-events:none;
 
     transition:.25s;
@@ -610,17 +609,21 @@ body{
 
 .finish-title{
     font-size:clamp(38px,6vw,75px);
+
     font-weight:900;
+
     color:#69381e;
 }
 
 .finish-icons{
     font-size:120px;
+
     margin:20px 0;
 }
 
 .finish-text{
     font-size:clamp(21px,3vw,32px);
+
     color:#865438;
 }
 
@@ -806,10 +809,12 @@ body{
 <script>
 
 /* =========================
-   УРОВНИ
+   8 РАУНДОВ
 ========================= */
 
 const levels = [
+
+    /* 1. ЦЫПЛЁНОК */
 
     {
         name:"Цыплёнок",
@@ -826,11 +831,24 @@ const levels = [
         ]
     },
 
+    /* 2. ЦАПЛЯ */
+
     {
         name:"Цапля",
-        type:"emoji",
-        emoji:"🪿"
+        type:"image",
+
+        hero:
+            "heroes/caplya/hero.png",
+
+        shadows:[
+            "heroes/caplya/shadow_correct.png",
+            "heroes/caplya/shadow_1.png",
+            "heroes/caplya/shadow_2.png",
+            "heroes/caplya/shadow_3.png"
+        ]
     },
+
+    /* 3. ЦИКЛОП */
 
     {
         name:"Циклоп",
@@ -838,11 +856,15 @@ const levels = [
         emoji:"👹"
     },
 
+    /* 4. ЦАРЬ */
+
     {
         name:"Царь",
         type:"emoji",
         emoji:"🤴"
     },
+
+    /* 5. ЦАРЕВНА */
 
     {
         name:"Царевна",
@@ -850,17 +872,23 @@ const levels = [
         emoji:"👸"
     },
 
+    /* 6. ЦЫГАНКА */
+
     {
         name:"Цыганка",
         type:"emoji",
         emoji:"💃"
     },
 
+    /* 7. ЦЕПЬ */
+
     {
         name:"Цепь",
         type:"emoji",
         emoji:"🔗"
     },
+
+    /* 8. ЦАРСТВО */
 
     {
         name:"Царство",
@@ -936,8 +964,10 @@ function createLevel(){
 
     hero.style.display = "flex";
     hero.style.position = "absolute";
+
     hero.style.left = "";
     hero.style.top = "";
+
     hero.style.transition = "";
 
     hero.innerHTML = "";
@@ -946,8 +976,10 @@ function createLevel(){
 
     counter.textContent =
         (currentLevel + 1)
-        + " / "
-        + levels.length;
+        +
+        " / "
+        +
+        levels.length;
 
     hint.textContent =
         "Нажми на шоколадное яйцо!";
@@ -958,7 +990,7 @@ function createLevel(){
 
 
 /* =========================
-   ГЕРОЙ
+   СОЗДАЁМ ГЕРОЯ
 ========================= */
 
 function createHero(){
@@ -1005,7 +1037,7 @@ function createHero(){
 
 
 /* =========================
-   4 ТЕНИ
+   СОЗДАЁМ 4 ТЕНИ
 ========================= */
 
 function createShadows(){
@@ -1034,6 +1066,8 @@ function createShadows(){
                 variant;
 
 
+            /* НАСТОЯЩИЕ PNG */
+
             if(level.type === "image"){
 
                 const img =
@@ -1053,6 +1087,9 @@ function createShadows(){
                 card.appendChild(img);
             }
 
+
+            /* ТЕСТОВЫЕ ЭМОДЗИ */
+
             else{
 
                 const character =
@@ -1060,7 +1097,8 @@ function createShadows(){
 
                 character.className =
                     "shadow-character variant-"
-                    + variant;
+                    +
+                    variant;
 
                 character.textContent =
                     level.emoji;
@@ -1142,6 +1180,7 @@ function openEgg(){
     hint.textContent =
         "Что спряталось внутри?";
 
+
     setTimeout(
         () => {
 
@@ -1156,6 +1195,7 @@ function openEgg(){
         },
         600
     );
+
 
     setTimeout(
         () => {
@@ -1178,7 +1218,7 @@ function openEgg(){
 
 
 /* =========================
-   DRAG
+   DRAG & DROP
 ========================= */
 
 hero.addEventListener(
@@ -1201,6 +1241,10 @@ hero.addEventListener(
     cancelDrag
 );
 
+
+/* =========================
+   НАЧАЛО ПЕРЕТАСКИВАНИЯ
+========================= */
 
 function startDrag(e){
 
@@ -1255,7 +1299,7 @@ function startDrag(e){
 
 
 /* =========================
-   ДВИЖЕНИЕ
+   ПЕРЕМЕЩЕНИЕ
 ========================= */
 
 function dragMove(e){
@@ -1281,6 +1325,7 @@ function dragMove(e){
             grabOffsetY
         )
         + "px";
+
 
     document
     .querySelectorAll(
@@ -1334,6 +1379,7 @@ function endDrag(e){
 
     let target = null;
 
+
     document
     .querySelectorAll(
         ".shadow-card"
@@ -1368,6 +1414,7 @@ function endDrag(e){
     if(!target){
 
         returnHero();
+
         return;
     }
 
@@ -1377,6 +1424,10 @@ function endDrag(e){
             target.dataset.variant
         );
 
+
+    /*
+       0 = правильная тень
+    */
 
     if(variant === 0){
 
@@ -1415,7 +1466,7 @@ function cancelDrag(){
 
 
 /* =========================
-   ОШИБКА
+   НЕПРАВИЛЬНО
 ========================= */
 
 function wrongAnswer(target){
@@ -1429,6 +1480,7 @@ function wrongAnswer(target){
 
     showMessage();
 
+
     setTimeout(
         () => {
 
@@ -1439,6 +1491,7 @@ function wrongAnswer(target){
         },
         400
     );
+
 
     returnHero();
 }
@@ -1462,6 +1515,12 @@ function correctAnswer(target){
     const level =
         levels[currentLevel];
 
+
+    /*
+       Правильная тень
+       становится цветным героем
+    */
+
     if(level.type === "image"){
 
         const img =
@@ -1470,15 +1529,18 @@ function correctAnswer(target){
             );
 
         if(img){
+
             img.src =
                 level.hero;
         }
     }
 
+
     message.textContent =
         "Точно! ⭐";
 
     showMessage();
+
 
     hint.textContent =
         "Правильно! Это «"
@@ -1486,6 +1548,7 @@ function correctAnswer(target){
         level.name
         +
         "».";
+
 
     setTimeout(
         () => {
@@ -1500,7 +1563,7 @@ function correctAnswer(target){
 
 
 /* =========================
-   ВОЗВРАТ
+   ВОЗВРАЩАЕМ ГЕРОЯ
 ========================= */
 
 function returnHero(){
@@ -1509,10 +1572,15 @@ function returnHero(){
         "left .35s ease, top .35s ease";
 
     hero.style.left =
-        originalLeft + "px";
+        originalLeft
+        +
+        "px";
 
     hero.style.top =
-        originalTop + "px";
+        originalTop
+        +
+        "px";
+
 
     setTimeout(
         () => {
@@ -1520,8 +1588,11 @@ function returnHero(){
             hero.style.position =
                 "absolute";
 
-            hero.style.left = "";
-            hero.style.top = "";
+            hero.style.left =
+                "";
+
+            hero.style.top =
+                "";
 
             hero.style.transition =
                 "";
@@ -1568,6 +1639,7 @@ function nextLevel(){
 
     currentLevel++;
 
+
     if(
         currentLevel
         >=
@@ -1579,6 +1651,7 @@ function nextLevel(){
 
         return;
     }
+
 
     createLevel();
 }
