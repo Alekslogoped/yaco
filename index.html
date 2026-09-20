@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Шоколадный сюрприз — звук Ц</title>
+<title>Кто в яйце?</title>
 
 <style>
 
@@ -52,12 +52,12 @@ body{
     transform:translateX(-50%);
 
     background:rgba(255,255,255,.93);
-    padding:11px 27px;
+    padding:11px 30px;
     border-radius:30px;
 
     box-shadow:0 6px 18px rgba(0,0,0,.16);
 
-    font-size:clamp(17px,2vw,26px);
+    font-size:clamp(19px,2.1vw,28px);
     font-weight:800;
     color:#67371e;
     white-space:nowrap;
@@ -70,7 +70,6 @@ body{
     z-index:40;
 
     background:rgba(255,255,255,.94);
-
     padding:10px 17px;
     border-radius:22px;
 
@@ -87,11 +86,12 @@ body{
 
 .play-area{
     position:absolute;
-
     left:0;
     right:0;
     top:76px;
-    bottom:12px;
+
+    /* немного больше места снизу */
+    bottom:65px;
 
     display:grid;
     grid-template-columns:42% 58%;
@@ -126,10 +126,8 @@ body{
     justify-content:center;
 
     cursor:pointer;
-
     z-index:20;
 
-    /* само яйцо сдвинуто вправо */
     transform:translateX(35px);
 }
 
@@ -143,10 +141,9 @@ body{
 
     z-index:5;
 
-    filter:
-        drop-shadow(
-            0 16px 15px rgba(70,35,15,.28)
-        );
+    filter:drop-shadow(
+        0 16px 15px rgba(70,35,15,.28)
+    );
 
     transition:
         opacity .25s ease,
@@ -213,10 +210,9 @@ body{
     opacity:0;
     pointer-events:none;
 
-    filter:
-        drop-shadow(
-            0 14px 13px rgba(70,35,15,.22)
-        );
+    filter:drop-shadow(
+        0 14px 13px rgba(70,35,15,.22)
+    );
 
     transition:
         transform .85s cubic-bezier(.2,.8,.25,1),
@@ -259,7 +255,7 @@ body{
 
 
 /* =========================
-   ГЕРОЙ ИЗ ЯЙЦА
+   ГЕРОЙ
 ========================= */
 
 .hero{
@@ -277,7 +273,7 @@ body{
     opacity:0;
 
     /*
-       Фигурка смещена вправо
+       Герой сдвинут вправо
        примерно на 0,5 см
     */
     transform:
@@ -295,10 +291,6 @@ body{
 .hero.show{
     opacity:1;
 
-    /*
-       Сохраняем смещение
-       после появления
-    */
     transform:
         translateX(19px)
         scale(1);
@@ -306,17 +298,8 @@ body{
 
 .hero.dragging{
     cursor:grabbing;
-
     transition:none;
-
     z-index:5000;
-
-    /*
-       При перетаскивании убираем
-       дополнительный transform,
-       чтобы герой точно следовал
-       за указателем
-    */
     transform:none;
 }
 
@@ -328,10 +311,9 @@ body{
 
     pointer-events:none;
 
-    filter:
-        drop-shadow(
-            0 9px 7px rgba(0,0,0,.18)
-        );
+    filter:drop-shadow(
+        0 9px 7px rgba(0,0,0,.18)
+    );
 }
 
 
@@ -342,14 +324,14 @@ body{
 .hint{
     position:absolute;
 
-    bottom:17px;
+    bottom:-48px;
     left:50%;
 
     transform:translateX(-50%);
 
     z-index:300;
 
-    background:rgba(255,255,255,.94);
+    background:rgba(255,255,255,.95);
 
     padding:11px 20px;
 
@@ -362,10 +344,10 @@ body{
 
     text-align:center;
 
-    min-width:310px;
+    width:390px;
+    max-width:90%;
 
-    box-shadow:
-        0 5px 15px rgba(0,0,0,.13);
+    box-shadow:0 5px 15px rgba(0,0,0,.13);
 }
 
 
@@ -379,11 +361,7 @@ body{
     align-items:center;
     justify-content:center;
 
-    padding:
-        20px
-        35px
-        48px
-        15px;
+    padding:20px 35px 25px 15px;
 }
 
 .shadow-grid{
@@ -391,9 +369,7 @@ body{
     max-width:690px;
 
     display:grid;
-
-    grid-template-columns:
-        repeat(2,1fr);
+    grid-template-columns:repeat(2,1fr);
 
     gap:20px;
 }
@@ -414,12 +390,9 @@ body{
 
     border-radius:28px;
 
-    border:
-        4px dashed
-        rgba(255,255,255,.94);
+    border:4px dashed rgba(255,255,255,.94);
 
-    background:
-        rgba(255,255,255,.28);
+    background:rgba(255,255,255,.28);
 
     backdrop-filter:blur(2px);
 
@@ -431,14 +404,8 @@ body{
 .shadow-card.hover{
     transform:scale(1.045);
 
-    background:
-        rgba(255,255,255,.62);
+    background:rgba(255,255,255,.62);
 }
-
-
-/* =========================
-   PNG ТЕНИ
-========================= */
 
 .shadow-image{
     width:88%;
@@ -459,8 +426,7 @@ body{
 ========================= */
 
 .shadow-card.success{
-    background:
-        rgba(230,255,209,.94);
+    background:rgba(230,255,209,.94);
 
     border:5px solid white;
 
@@ -468,8 +434,7 @@ body{
 }
 
 .shadow-card.success .shadow-image{
-    animation:
-        successPop .5s ease;
+    animation:successPop .5s ease;
 }
 
 @keyframes successPop{
@@ -493,8 +458,7 @@ body{
 ========================= */
 
 .shadow-card.wrong{
-    animation:
-        wrongShake .35s ease;
+    animation:wrongShake .35s ease;
 }
 
 @keyframes wrongShake{
@@ -535,18 +499,14 @@ body{
 
     border-radius:30px;
 
-    font-size:
-        clamp(24px,3vw,42px);
-
+    font-size:clamp(24px,3vw,42px);
     font-weight:800;
 
     color:#69391f;
 
-    box-shadow:
-        0 15px 40px rgba(0,0,0,.25);
+    box-shadow:0 15px 40px rgba(0,0,0,.25);
 
     opacity:0;
-
     pointer-events:none;
 
     transition:.25s;
@@ -562,7 +522,8 @@ body{
 
 
 /* =========================
-   КНОПКА ДАЛЬШЕ
+   КНОПКА "ТОЧНО!"
+   ОПУЩЕНА ВНИЗ
 ========================= */
 
 .next-btn{
@@ -570,14 +531,19 @@ body{
 
     z-index:1500;
 
-    right:35px;
-    bottom:23px;
+    /*
+       Кнопка располагается
+       внизу по центру правой части
+    */
+    left:71%;
+    transform:translateX(-50%);
+
+    bottom:8px;
 
     border:none;
-
     border-radius:30px;
 
-    padding:15px 27px;
+    padding:13px 32px;
 
     background:#ffd044;
     color:#63391f;
@@ -587,17 +553,17 @@ body{
 
     cursor:pointer;
 
-    box-shadow:
-        0 7px 0 #dba62b;
+    box-shadow:0 6px 0 #dba62b;
 
     display:none;
 }
 
 .next-btn:active{
-    transform:translateY(4px);
+    transform:
+        translateX(-50%)
+        translateY(4px);
 
-    box-shadow:
-        0 3px 0 #dba62b;
+    box-shadow:0 2px 0 #dba62b;
 }
 
 
@@ -607,7 +573,6 @@ body{
 
 .finish{
     position:absolute;
-
     inset:0;
 
     z-index:9000;
@@ -621,13 +586,11 @@ body{
 
     text-align:center;
 
-    background:
-        rgba(255,245,215,.94);
+    background:rgba(255,245,215,.94);
 }
 
 .finish-title{
-    font-size:
-        clamp(38px,6vw,75px);
+    font-size:clamp(38px,6vw,75px);
 
     font-weight:900;
 
@@ -641,8 +604,7 @@ body{
 }
 
 .finish-text{
-    font-size:
-        clamp(21px,3vw,32px);
+    font-size:clamp(21px,3vw,32px);
 
     color:#865438;
 }
@@ -657,7 +619,6 @@ body{
     border-radius:30px;
 
     background:#ffd044;
-
     color:#63391f;
 
     font-size:20px;
@@ -674,8 +635,7 @@ body{
 @media(max-width:850px){
 
     .play-area{
-        grid-template-columns:
-            40% 60%;
+        grid-template-columns:40% 60%;
     }
 
     .egg-wrapper{
@@ -699,8 +659,15 @@ body{
 
     .hint{
         font-size:14px;
+        width:270px;
+    }
 
-        min-width:210px;
+    .next-btn{
+        left:70%;
+        bottom:5px;
+
+        font-size:15px;
+        padding:10px 20px;
     }
 }
 
@@ -712,7 +679,7 @@ body{
 <div class="game">
 
     <div class="title">
-        🍫 Шоколадный сюрприз — звук Ц
+        Кто в яйце?
     </div>
 
     <div
@@ -724,8 +691,6 @@ body{
 
 
     <div class="play-area">
-
-        <!-- ЛЕВАЯ ЧАСТЬ -->
 
         <div class="left-zone">
 
@@ -774,8 +739,6 @@ body{
         </div>
 
 
-        <!-- ПРАВАЯ ЧАСТЬ -->
-
         <div class="right-zone">
 
             <div
@@ -798,11 +761,9 @@ body{
         class="next-btn"
         id="nextBtn"
     >
-        Следующий сюрприз →
+        ТОЧНО! →
     </button>
 
-
-    <!-- ФИНАЛ -->
 
     <div
         class="finish"
@@ -836,18 +797,15 @@ body{
 <script>
 
 /* =========================
-   6 УРОВНЕЙ ИГРЫ
+   6 ГЕРОЕВ
 ========================= */
 
 const levels = [
 
-    /* 1. ЦЫПЛЁНОК */
-
     {
-        name:"Цыплёнок",
+        name:"цыплёнок",
 
-        hero:
-            "heroes/ciplenok/hero.png",
+        hero:"heroes/ciplenok/hero.png",
 
         shadows:[
             "heroes/ciplenok/shadow_correct.png",
@@ -857,14 +815,10 @@ const levels = [
         ]
     },
 
-
-    /* 2. ЦАПЛЯ */
-
     {
-        name:"Цапля",
+        name:"цапля",
 
-        hero:
-            "heroes/caplya/hero.png",
+        hero:"heroes/caplya/hero.png",
 
         shadows:[
             "heroes/caplya/shadow_correct.png",
@@ -874,14 +828,10 @@ const levels = [
         ]
     },
 
-
-    /* 3. ЦИКЛОП */
-
     {
-        name:"Циклоп",
+        name:"циклоп",
 
-        hero:
-            "heroes/ciklop/hero.png",
+        hero:"heroes/ciklop/hero.png",
 
         shadows:[
             "heroes/ciklop/shadow_correct.png",
@@ -891,14 +841,10 @@ const levels = [
         ]
     },
 
-
-    /* 4. ЦАРЬ */
-
     {
-        name:"Царь",
+        name:"царь",
 
-        hero:
-            "heroes/car/hero.png",
+        hero:"heroes/car/hero.png",
 
         shadows:[
             "heroes/car/shadow_correct.png",
@@ -908,14 +854,10 @@ const levels = [
         ]
     },
 
-
-    /* 5. ЦАРЕВНА */
-
     {
-        name:"Царевна",
+        name:"царевна",
 
-        hero:
-            "heroes/carevna/hero.png",
+        hero:"heroes/carevna/hero.png",
 
         shadows:[
             "heroes/carevna/shadow_correct.png",
@@ -925,14 +867,10 @@ const levels = [
         ]
     },
 
-
-    /* 6. ЦЫГАНКА */
-
     {
-        name:"Цыганка",
+        name:"цыганка",
 
-        hero:
-            "heroes/cyganka/hero.png",
+        hero:"heroes/cyganka/hero.png",
 
         shadows:[
             "heroes/cyganka/shadow_correct.png",
@@ -950,44 +888,28 @@ const levels = [
 ========================= */
 
 const eggWrapper =
-    document.getElementById(
-        "eggWrapper"
-    );
+    document.getElementById("eggWrapper");
 
 const hero =
-    document.getElementById(
-        "hero"
-    );
+    document.getElementById("hero");
 
 const shadowGrid =
-    document.getElementById(
-        "shadowGrid"
-    );
+    document.getElementById("shadowGrid");
 
 const hint =
-    document.getElementById(
-        "hint"
-    );
+    document.getElementById("hint");
 
 const counter =
-    document.getElementById(
-        "counter"
-    );
+    document.getElementById("counter");
 
 const message =
-    document.getElementById(
-        "message"
-    );
+    document.getElementById("message");
 
 const nextBtn =
-    document.getElementById(
-        "nextBtn"
-    );
+    document.getElementById("nextBtn");
 
 const finish =
-    document.getElementById(
-        "finish"
-    );
+    document.getElementById("finish");
 
 
 /* =========================
@@ -1009,7 +931,7 @@ let originalTop = 0;
 
 
 /* =========================
-   СОЗДАНИЕ УРОВНЯ
+   СОЗДАЁМ УРОВЕНЬ
 ========================= */
 
 function createLevel(){
@@ -1028,22 +950,16 @@ function createLevel(){
         "dragging"
     );
 
-    hero.style.display =
-        "flex";
-
-    hero.style.position =
-        "absolute";
+    hero.style.display = "flex";
+    hero.style.position = "absolute";
 
     hero.style.left = "";
     hero.style.top = "";
-
     hero.style.transition = "";
 
     hero.innerHTML = "";
 
-    nextBtn.style.display =
-        "none";
-
+    nextBtn.style.display = "none";
 
     counter.textContent =
         (currentLevel + 1)
@@ -1052,19 +968,16 @@ function createLevel(){
         +
         levels.length;
 
-
     hint.textContent =
         "Нажми на шоколадное яйцо!";
 
-
     createHero();
-
     createShadows();
 }
 
 
 /* =========================
-   СОЗДАНИЕ ГЕРОЯ
+   ГЕРОЙ
 ========================= */
 
 function createHero(){
@@ -1072,13 +985,8 @@ function createHero(){
     const level =
         levels[currentLevel];
 
-    hero.innerHTML = "";
-
-
     const img =
-        document.createElement(
-            "img"
-        );
+        document.createElement("img");
 
     img.src =
         level.hero;
@@ -1092,15 +1000,12 @@ function createHero(){
     img.draggable =
         false;
 
-
-    hero.appendChild(
-        img
-    );
+    hero.appendChild(img);
 }
 
 
 /* =========================
-   СОЗДАНИЕ ТЕНЕЙ
+   ТЕНИ
 ========================= */
 
 function createShadows(){
@@ -1110,20 +1015,15 @@ function createShadows(){
     const level =
         levels[currentLevel];
 
-
     const variants =
-        shuffleArray(
-            [0,1,2,3]
-        );
+        shuffleArray([0,1,2,3]);
 
 
     variants.forEach(
         variant => {
 
             const card =
-                document.createElement(
-                    "div"
-                );
+                document.createElement("div");
 
             card.className =
                 "shadow-card";
@@ -1133,32 +1033,21 @@ function createShadows(){
 
 
             const img =
-                document.createElement(
-                    "img"
-                );
-
+                document.createElement("img");
 
             img.src =
-                level.shadows[
-                    variant
-                ];
+                level.shadows[variant];
 
             img.className =
                 "shadow-image";
 
             img.alt = "";
-
-            img.draggable =
-                false;
+            img.draggable = false;
 
 
-            card.appendChild(
-                img
-            );
+            card.appendChild(img);
 
-            shadowGrid.appendChild(
-                card
-            );
+            shadowGrid.appendChild(card);
         }
     );
 }
@@ -1170,26 +1059,18 @@ function createShadows(){
 
 function shuffleArray(array){
 
-    const newArray =
-        [...array];
-
+    const newArray = [...array];
 
     for(
-        let i =
-            newArray.length - 1;
-
+        let i = newArray.length - 1;
         i > 0;
-
         i--
     ){
 
         const j =
             Math.floor(
-                Math.random()
-                *
-                (i + 1)
+                Math.random() * (i + 1)
             );
-
 
         [
             newArray[i],
@@ -1202,13 +1083,12 @@ function shuffleArray(array){
         ];
     }
 
-
     return newArray;
 }
 
 
 /* =========================
-   ОТКРЫВАЕМ ЯЙЦО
+   ОТКРЫТИЕ ЯЙЦА
 ========================= */
 
 eggWrapper.addEventListener(
@@ -1223,29 +1103,20 @@ function openEgg(){
         return;
     }
 
-
     eggOpened = true;
 
-
-    eggWrapper.classList.add(
-        "shake"
-    );
-
+    eggWrapper.classList.add("shake");
 
     hint.textContent =
-        "Что спряталось внутри?";
+        "Кто спрятался в яйце?";
 
 
     setTimeout(
         () => {
 
-            eggWrapper.classList.remove(
-                "shake"
-            );
+            eggWrapper.classList.remove("shake");
 
-            eggWrapper.classList.add(
-                "open"
-            );
+            eggWrapper.classList.add("open");
 
         },
         600
@@ -1255,17 +1126,21 @@ function openEgg(){
     setTimeout(
         () => {
 
-            hero.classList.add(
-                "show"
-            );
+            hero.classList.add("show");
 
+            /*
+               НОВАЯ ФРАЗА.
+
+               Название героя
+               меняется автоматически.
+            */
 
             hint.textContent =
-                "Назови: «"
+                "Скажи: «В яйце "
                 +
                 levels[currentLevel].name
                 +
-                "». Найди точно такую же тень!";
+                "» и найди точно такую же тень!";
 
         },
         1250
@@ -1298,10 +1173,6 @@ hero.addEventListener(
 );
 
 
-/* =========================
-   НАЧАЛО ПЕРЕТАСКИВАНИЯ
-========================= */
-
 function startDrag(e){
 
     if(
@@ -1312,41 +1183,25 @@ function startDrag(e){
         return;
     }
 
-
     e.preventDefault();
 
     dragging = true;
 
-
-    hero.setPointerCapture(
-        e.pointerId
-    );
-
+    hero.setPointerCapture(e.pointerId);
 
     const rect =
         hero.getBoundingClientRect();
 
-
-    originalLeft =
-        rect.left;
-
-    originalTop =
-        rect.top;
-
+    originalLeft = rect.left;
+    originalTop = rect.top;
 
     grabOffsetX =
-        e.clientX
-        -
-        rect.left;
+        e.clientX - rect.left;
 
     grabOffsetY =
-        e.clientY
-        -
-        rect.top;
+        e.clientY - rect.top;
 
-
-    hero.style.position =
-        "fixed";
+    hero.style.position = "fixed";
 
     hero.style.left =
         rect.left + "px";
@@ -1354,16 +1209,9 @@ function startDrag(e){
     hero.style.top =
         rect.top + "px";
 
-
-    hero.classList.add(
-        "dragging"
-    );
+    hero.classList.add("dragging");
 }
 
-
-/* =========================
-   ДВИЖЕНИЕ
-========================= */
 
 function dragMove(e){
 
@@ -1371,46 +1219,26 @@ function dragMove(e){
         return;
     }
 
-
     e.preventDefault();
 
-
     hero.style.left =
-        (
-            e.clientX
-            -
-            grabOffsetX
-        )
-        +
-        "px";
-
+        (e.clientX - grabOffsetX)
+        + "px";
 
     hero.style.top =
-        (
-            e.clientY
-            -
-            grabOffsetY
-        )
-        +
-        "px";
+        (e.clientY - grabOffsetY)
+        + "px";
 
 
     document
-    .querySelectorAll(
-        ".shadow-card"
-    )
+    .querySelectorAll(".shadow-card")
     .forEach(
         card => {
 
-            card.classList.remove(
-                "hover"
-            );
-
+            card.classList.remove("hover");
 
             const rect =
-                card
-                .getBoundingClientRect();
-
+                card.getBoundingClientRect();
 
             if(
                 e.clientX >= rect.left
@@ -1421,19 +1249,12 @@ function dragMove(e){
                 &&
                 e.clientY <= rect.bottom
             ){
-
-                card.classList.add(
-                    "hover"
-                );
+                card.classList.add("hover");
             }
         }
     );
 }
 
-
-/* =========================
-   ОТПУСКАЕМ ГЕРОЯ
-========================= */
 
 function endDrag(e){
 
@@ -1441,34 +1262,22 @@ function endDrag(e){
         return;
     }
 
-
     dragging = false;
 
-
-    hero.classList.remove(
-        "dragging"
-    );
-
+    hero.classList.remove("dragging");
 
     let target = null;
 
 
     document
-    .querySelectorAll(
-        ".shadow-card"
-    )
+    .querySelectorAll(".shadow-card")
     .forEach(
         card => {
 
-            card.classList.remove(
-                "hover"
-            );
-
+            card.classList.remove("hover");
 
             const rect =
-                card
-                .getBoundingClientRect();
-
+                card.getBoundingClientRect();
 
             if(
                 e.clientX >= rect.left
@@ -1479,7 +1288,6 @@ function endDrag(e){
                 &&
                 e.clientY <= rect.bottom
             ){
-
                 target = card;
             }
         }
@@ -1495,30 +1303,19 @@ function endDrag(e){
 
 
     const variant =
-        Number(
-            target.dataset.variant
-        );
+        Number(target.dataset.variant);
 
 
     if(variant === 0){
 
-        correctAnswer(
-            target
-        );
-    }
+        correctAnswer(target);
 
-    else{
+    }else{
 
-        wrongAnswer(
-            target
-        );
+        wrongAnswer(target);
     }
 }
 
-
-/* =========================
-   ОТМЕНА
-========================= */
 
 function cancelDrag(){
 
@@ -1526,33 +1323,24 @@ function cancelDrag(){
         return;
     }
 
-
     dragging = false;
 
-
-    hero.classList.remove(
-        "dragging"
-    );
-
+    hero.classList.remove("dragging");
 
     returnHero();
 }
 
 
 /* =========================
-   НЕПРАВИЛЬНЫЙ ОТВЕТ
+   ОШИБКА
 ========================= */
 
 function wrongAnswer(target){
 
-    target.classList.add(
-        "wrong"
-    );
-
+    target.classList.add("wrong");
 
     message.textContent =
         "Посмотри внимательнее 😊";
-
 
     showMessage();
 
@@ -1560,9 +1348,7 @@ function wrongAnswer(target){
     setTimeout(
         () => {
 
-            target.classList.remove(
-                "wrong"
-            );
+            target.classList.remove("wrong");
 
         },
         400
@@ -1581,15 +1367,9 @@ function correctAnswer(target){
 
     completed = true;
 
+    target.classList.add("success");
 
-    target.classList.add(
-        "success"
-    );
-
-
-    hero.style.display =
-        "none";
-
+    hero.style.display = "none";
 
     const level =
         levels[currentLevel];
@@ -1603,39 +1383,27 @@ function correctAnswer(target){
 
     if(img){
 
-        /*
-           Вместо правильной
-           чёрной тени показываем
-           цветного героя
-        */
-
         img.src =
             level.hero;
     }
 
 
     message.textContent =
-        "Точно! ⭐";
-
+        "ТОЧНО! ⭐";
 
     showMessage();
 
 
     hint.textContent =
-        "Правильно! Это «"
+        "Правильно! В яйце "
         +
         level.name
         +
-        "».";
+        "!";
 
 
     setTimeout(
         () => {
-
-            /*
-               На последнем раунде
-               меняем текст кнопки
-            */
 
             if(
                 currentLevel
@@ -1644,13 +1412,12 @@ function correctAnswer(target){
             ){
 
                 nextBtn.textContent =
-                    "Завершить игру ⭐";
-            }
+                    "ЗАВЕРШИТЬ ⭐";
 
-            else{
+            }else{
 
                 nextBtn.textContent =
-                    "Следующий сюрприз →";
+                    "ТОЧНО! →";
             }
 
 
@@ -1669,28 +1436,15 @@ function correctAnswer(target){
 
 function returnHero(){
 
-    /*
-       Во время drag transform
-       отключался.
-
-       Возвращаем фигурку
-       в исходную точку.
-    */
-
     hero.style.transition =
         "left .35s ease, top .35s ease";
 
 
     hero.style.left =
-        originalLeft
-        +
-        "px";
-
+        originalLeft + "px";
 
     hero.style.top =
-        originalTop
-        +
-        "px";
+        originalTop + "px";
 
 
     setTimeout(
@@ -1716,17 +1470,13 @@ function returnHero(){
 
 function showMessage(){
 
-    message.classList.add(
-        "show"
-    );
+    message.classList.add("show");
 
 
     setTimeout(
         () => {
 
-            message.classList.remove(
-                "show"
-            );
+            message.classList.remove("show");
 
         },
         1100
@@ -1735,7 +1485,7 @@ function showMessage(){
 
 
 /* =========================
-   СЛЕДУЮЩИЙ РАУНД
+   СЛЕДУЮЩИЙ УРОВЕНЬ
 ========================= */
 
 nextBtn.addEventListener(
