@@ -23,8 +23,12 @@ html,body{
 
 body{
     font-family:Arial, sans-serif;
-    background:#c9efff;
+    background:#f4d7a7;
 }
+
+/* =========================
+   ФОН ИГРЫ
+========================= */
 
 .game{
     width:100vw;
@@ -33,67 +37,16 @@ body{
     position:relative;
     overflow:hidden;
 
-    background:
-        radial-gradient(circle at 50% 15%,rgba(255,255,255,.9),transparent 28%),
-        linear-gradient(
-            #bdeeff 0%,
-            #e5f9ff 62%,
-            #b6e38a 62%,
-            #79bd5c 100%
-        );
+    background-image:url("fon.png");
+    background-size:cover;
+    background-position:center center;
+    background-repeat:no-repeat;
 }
 
 
-/* ===============================
-   ОБЛАКА
-================================ */
-
-.cloud{
-    position:absolute;
-    width:150px;
-    height:45px;
-    background:white;
-    opacity:.75;
-    border-radius:100px;
-}
-
-.cloud:before,
-.cloud:after{
-    content:"";
-    position:absolute;
-    background:white;
-    border-radius:50%;
-}
-
-.cloud:before{
-    width:65px;
-    height:65px;
-    left:25px;
-    top:-30px;
-}
-
-.cloud:after{
-    width:80px;
-    height:80px;
-    right:15px;
-    top:-42px;
-}
-
-.cloud1{
-    left:5%;
-    top:15%;
-}
-
-.cloud2{
-    right:6%;
-    top:12%;
-    transform:scale(.75);
-}
-
-
-/* ===============================
-   ШАПКА
-================================ */
+/* =========================
+   ЗАГОЛОВОК
+========================= */
 
 .title{
     position:absolute;
@@ -103,9 +56,9 @@ body{
     left:50%;
     transform:translateX(-50%);
 
-    background:rgba(255,255,255,.94);
+    background:rgba(255,255,255,.92);
 
-    padding:12px 28px;
+    padding:11px 28px;
 
     border-radius:30px;
 
@@ -127,7 +80,7 @@ body{
 
     z-index:40;
 
-    background:white;
+    background:rgba(255,255,255,.94);
 
     padding:10px 17px;
 
@@ -141,17 +94,16 @@ body{
 }
 
 
-/* ===============================
+/* =========================
    ИГРОВАЯ ОБЛАСТЬ
-================================ */
+========================= */
 
 .play-area{
-
     position:absolute;
 
     left:0;
     right:0;
-    top:90px;
+    top:80px;
     bottom:15px;
 
     display:grid;
@@ -160,12 +112,11 @@ body{
 }
 
 
-/* ===============================
+/* =========================
    ЛЕВАЯ СТОРОНА
-================================ */
+========================= */
 
 .left-zone{
-
     position:relative;
 
     display:flex;
@@ -174,12 +125,11 @@ body{
 }
 
 
-/* ===============================
+/* =========================
    ЯЙЦО
-================================ */
+========================= */
 
 .egg-wrapper{
-
     position:absolute;
 
     width:290px;
@@ -195,7 +145,6 @@ body{
 }
 
 .egg{
-
     position:absolute;
 
     width:220px;
@@ -227,7 +176,6 @@ body{
 }
 
 .ribbon-v{
-
     position:absolute;
 
     width:15px;
@@ -242,7 +190,6 @@ body{
 }
 
 .bow{
-
     position:absolute;
 
     left:50%;
@@ -256,9 +203,9 @@ body{
 }
 
 
-/* ===============================
-   ТРЯСКА
-================================ */
+/* =========================
+   ТРЯСКА ЯЙЦА
+========================= */
 
 .shake{
     animation:eggShake .55s ease;
@@ -288,12 +235,11 @@ body{
 }
 
 
-/* ===============================
-   ПОЛОВИНКИ
-================================ */
+/* =========================
+   ПОЛОВИНКИ ЯЙЦА
+========================= */
 
 .half{
-
     position:absolute;
 
     width:110px;
@@ -317,7 +263,6 @@ body{
 }
 
 .half-left{
-
     left:35px;
 
     border-radius:
@@ -326,14 +271,12 @@ body{
 }
 
 .half-right{
-
     right:35px;
 
     border-radius:
         0 100% 100% 0 /
         0 58% 42% 0;
 }
-
 
 .egg-wrapper.open .egg{
     opacity:0;
@@ -356,12 +299,11 @@ body{
 }
 
 
-/* ===============================
+/* =========================
    ГЕРОЙ
-================================ */
+========================= */
 
 .hero{
-
     position:absolute;
 
     width:175px;
@@ -394,44 +336,36 @@ body{
 }
 
 .hero.show{
-
     opacity:1;
-
     transform:scale(1);
 }
 
 .hero.dragging{
-
     cursor:grabbing;
-
     transition:none;
-
     z-index:3000;
 }
 
 
-/* ===============================
+/* =========================
    ПОДСКАЗКА
-================================ */
+========================= */
 
 .hint{
-
     position:absolute;
 
-    bottom:30px;
+    bottom:22px;
 
     left:50%;
-
     transform:translateX(-50%);
 
-    background:rgba(255,255,255,.95);
+    background:rgba(255,255,255,.94);
 
     padding:11px 20px;
 
     border-radius:25px;
 
     font-size:18px;
-
     font-weight:bold;
 
     color:#704126;
@@ -441,20 +375,18 @@ body{
     min-width:290px;
 
     box-shadow:
-        0 5px 15px rgba(0,0,0,.1);
+        0 5px 15px rgba(0,0,0,.12);
 }
 
 
-/* ===============================
+/* =========================
    ПРАВАЯ СТОРОНА
-================================ */
+========================= */
 
 .right-zone{
-
     display:flex;
 
     align-items:center;
-
     justify-content:center;
 
     padding:
@@ -462,7 +394,6 @@ body{
 }
 
 .shadow-grid{
-
     width:100%;
 
     max-width:700px;
@@ -472,24 +403,22 @@ body{
     grid-template-columns:
         repeat(2,1fr);
 
-    gap:25px;
+    gap:22px;
 }
 
 
-/* ===============================
-   КАРТОЧКА ТЕНИ
-================================ */
+/* =========================
+   КАРТОЧКИ ТЕНЕЙ
+========================= */
 
 .shadow-card{
-
-    height:230px;
+    height:220px;
 
     position:relative;
 
     display:flex;
 
     align-items:center;
-
     justify-content:center;
 
     border-radius:30px;
@@ -498,13 +427,14 @@ body{
         4px dashed rgba(255,255,255,.95);
 
     background:
-        rgba(255,255,255,.28);
+        rgba(255,255,255,.30);
+
+    backdrop-filter:blur(2px);
 
     transition:.25s;
 }
 
 .shadow-card.hover{
-
     transform:scale(1.04);
 
     background:
@@ -512,12 +442,11 @@ body{
 }
 
 
-/* ===============================
-   СИЛУЭТ
-================================ */
+/* =========================
+   СИЛУЭТЫ
+========================= */
 
 .shadow-character{
-
     font-size:135px;
 
     line-height:1;
@@ -525,67 +454,49 @@ body{
     display:flex;
 
     align-items:center;
-
     justify-content:center;
 
     filter:
         grayscale(1)
         brightness(.08);
 
-    opacity:.67;
+    opacity:.72;
 
     transition:.3s;
 }
 
 
-/*
-   Здесь создаём тестовые
-   различия силуэтов.
-*/
-
+/* правильный */
 
 .variant-0{
-
-    transform:
-        scale(1);
+    transform:scale(1);
 }
 
 
-/* чуть меньше */
+/* тестовые отличия */
 
 .variant-1{
-
-    transform:
-        scale(.82);
+    transform:scale(.82);
 }
 
-
-/* повернут */
-
 .variant-2{
-
     transform:
         rotate(-13deg)
         scale(.95);
 }
 
-
-/* вытянут */
-
 .variant-3{
-
     transform:
         scaleX(.72)
         scaleY(1.08);
 }
 
 
-/* ===============================
+/* =========================
    ПРАВИЛЬНЫЙ ОТВЕТ
-================================ */
+========================= */
 
 .shadow-card.success{
-
     background:
         rgba(230,255,209,.95);
 
@@ -597,9 +508,7 @@ body{
 
 .shadow-card.success
 .shadow-character{
-
     filter:none;
-
     opacity:1;
 
     animation:
@@ -622,12 +531,11 @@ body{
 }
 
 
-/* ===============================
-   НЕПРАВИЛЬНЫЙ ВЫБОР
-================================ */
+/* =========================
+   ОШИБКА
+========================= */
 
 .shadow-card.wrong{
-
     animation:
         wrongShake .35s ease;
 }
@@ -648,12 +556,11 @@ body{
 }
 
 
-/* ===============================
+/* =========================
    СООБЩЕНИЕ
-================================ */
+========================= */
 
 .message{
-
     position:absolute;
 
     z-index:5000;
@@ -689,7 +596,6 @@ body{
 }
 
 .message.show{
-
     opacity:1;
 
     transform:
@@ -698,18 +604,17 @@ body{
 }
 
 
-/* ===============================
-   КНОПКА
-================================ */
+/* =========================
+   КНОПКА ДАЛЬШЕ
+========================= */
 
 .next-btn{
-
     position:absolute;
 
     z-index:1000;
 
     right:35px;
-    bottom:28px;
+    bottom:25px;
 
     border:none;
 
@@ -734,7 +639,6 @@ body{
 }
 
 .next-btn:active{
-
     transform:translateY(4px);
 
     box-shadow:
@@ -742,12 +646,11 @@ body{
 }
 
 
-/* ===============================
+/* =========================
    ФИНАЛ
-================================ */
+========================= */
 
 .finish{
-
     position:absolute;
 
     inset:0;
@@ -759,17 +662,15 @@ body{
     flex-direction:column;
 
     align-items:center;
-
     justify-content:center;
 
     text-align:center;
 
     background:
-        rgba(255,245,215,.97);
+        rgba(255,245,215,.94);
 }
 
 .finish-title{
-
     font-size:
         clamp(38px,6vw,75px);
 
@@ -779,14 +680,12 @@ body{
 }
 
 .finish-icons{
-
     font-size:120px;
 
     margin:20px 0;
 }
 
 .finish-text{
-
     font-size:
         clamp(21px,3vw,32px);
 
@@ -794,7 +693,6 @@ body{
 }
 
 .restart{
-
     margin-top:25px;
 
     border:none;
@@ -815,40 +713,34 @@ body{
 }
 
 
-/* ===============================
+/* =========================
    АДАПТАЦИЯ
-================================ */
+========================= */
 
 @media(max-width:800px){
 
     .play-area{
-
         grid-template-columns:
             40% 60%;
     }
 
     .egg-wrapper{
-
         transform:scale(.72);
     }
 
     .shadow-grid{
-
         gap:10px;
     }
 
     .shadow-card{
-
         height:160px;
     }
 
     .shadow-character{
-
         font-size:90px;
     }
 
     .hero{
-
         width:120px;
         height:120px;
 
@@ -856,9 +748,7 @@ body{
     }
 
     .hint{
-
         font-size:14px;
-
         min-width:200px;
     }
 }
@@ -866,39 +756,26 @@ body{
 </style>
 </head>
 
-
 <body>
 
 
 <div class="game">
 
 
-<div class="cloud cloud1"></div>
-<div class="cloud cloud2"></div>
-
-
 <div class="title">
-
 🍫 Шоколадный сюрприз — звук Ц
-
 </div>
 
 
-<div
-class="counter"
-id="counter">
-
+<div class="counter" id="counter">
 1 / 8
-
 </div>
 
 
 <div class="play-area">
 
 
-<!-- =====================
-     ЛЕВАЯ ЧАСТЬ
-====================== -->
+<!-- ЛЕВАЯ ЧАСТЬ -->
 
 <div class="left-zone">
 
@@ -950,9 +827,7 @@ id="hint">
 </div>
 
 
-<!-- =====================
-     ПРАВАЯ ЧАСТЬ
-====================== -->
+<!-- ПРАВАЯ ЧАСТЬ -->
 
 <div class="right-zone">
 
@@ -984,9 +859,7 @@ id="nextBtn">
 </button>
 
 
-<!-- =====================
-     ФИНАЛ
-====================== -->
+<!-- ФИНАЛ -->
 
 <div
 class="finish"
@@ -1029,14 +902,12 @@ onclick="location.reload()">
 </div>
 
 
-
 <script>
 
 
-/* ==================================
-   НАШИ 8 РАУНДОВ
-================================== */
-
+/* =========================
+   8 РАУНДОВ
+========================= */
 
 const levels = [
 
@@ -1083,69 +954,41 @@ const levels = [
 ];
 
 
-/* ==================================
+/* =========================
    ЭЛЕМЕНТЫ
-================================== */
-
+========================= */
 
 const eggWrapper =
-document.getElementById(
-    "eggWrapper"
-);
-
+document.getElementById("eggWrapper");
 
 const egg =
-document.getElementById(
-    "egg"
-);
-
+document.getElementById("egg");
 
 const hero =
-document.getElementById(
-    "hero"
-);
-
+document.getElementById("hero");
 
 const shadowGrid =
-document.getElementById(
-    "shadowGrid"
-);
-
+document.getElementById("shadowGrid");
 
 const hint =
-document.getElementById(
-    "hint"
-);
-
+document.getElementById("hint");
 
 const counter =
-document.getElementById(
-    "counter"
-);
-
+document.getElementById("counter");
 
 const message =
-document.getElementById(
-    "message"
-);
-
+document.getElementById("message");
 
 const nextBtn =
-document.getElementById(
-    "nextBtn"
-);
-
+document.getElementById("nextBtn");
 
 const finish =
-document.getElementById(
-    "finish"
-);
+document.getElementById("finish");
 
 
-/* ==================================
+/* =========================
    СОСТОЯНИЕ
-================================== */
-
+========================= */
 
 let currentLevel = 0;
 
@@ -1154,49 +997,30 @@ let eggOpened = false;
 let completed = false;
 
 
-/* ==================================
+/* =========================
    СОЗДАНИЕ РАУНДА
-================================== */
-
+========================= */
 
 function createLevel(){
 
     eggOpened = false;
-
     completed = false;
 
+    eggWrapper.classList.remove("open");
 
-    eggWrapper.classList.remove(
-        "open"
-    );
+    egg.classList.remove("shake");
 
+    hero.classList.remove("show");
 
-    egg.classList.remove(
-        "shake"
-    );
+    hero.style.display = "flex";
 
-
-    hero.classList.remove(
-        "show"
-    );
-
-
-    hero.style.display =
-        "flex";
-
-
-    hero.style.position =
-        "absolute";
-
+    hero.style.position = "absolute";
 
     hero.style.left = "";
-
     hero.style.top = "";
-
 
     hero.innerHTML =
         levels[currentLevel].emoji;
-
 
     counter.innerHTML =
         (currentLevel + 1)
@@ -1205,128 +1029,76 @@ function createLevel(){
         +
         levels.length;
 
-
     hint.innerHTML =
         "Нажми на шоколадное яйцо!";
-
 
     nextBtn.style.display =
         "none";
 
-
     createShadows();
-
 }
 
 
-
-/* ==================================
-   СОЗДАЁМ 4 ПОХОЖИЕ ТЕНИ
-================================== */
-
+/* =========================
+   4 ПОХОЖИЕ ТЕНИ
+========================= */
 
 function createShadows(){
 
     shadowGrid.innerHTML = "";
 
-
-    /*
-       ВАЖНО:
-
-       0 = точная тень.
-
-       1,2,3 =
-       неправильные варианты.
-
-       Потом, когда будут PNG,
-       здесь будут четыре
-       отдельных изображения.
-    */
-
-
-    let variants = [
-        0,
-        1,
-        2,
-        3
-    ];
-
-
-    /*
-       Перемешиваем.
-       Поэтому правильная тень
-       будет каждый раз
-       в другом месте.
-    */
-
+    let variants =
+        [0,1,2,3];
 
     variants =
         shuffleArray(variants);
 
-
     variants.forEach(
         variant => {
 
-
         const card =
-        document.createElement(
-            "div"
-        );
-
+            document.createElement("div");
 
         card.className =
             "shadow-card";
-
 
         card.dataset.variant =
             variant;
 
 
         const character =
-        document.createElement(
-            "div"
-        );
-
+            document.createElement("div");
 
         character.className =
-            "shadow-character "
-            +
-            "variant-"
+            "shadow-character variant-"
             +
             variant;
 
-
         character.innerHTML =
-            levels[currentLevel]
-            .emoji;
+            levels[currentLevel].emoji;
 
 
         card.appendChild(
             character
         );
 
-
         shadowGrid.appendChild(
             card
         );
-
 
     });
 
 }
 
 
-
-/* ==================================
+/* =========================
    ПЕРЕМЕШИВАНИЕ
-================================== */
-
+========================= */
 
 function shuffleArray(array){
 
     const newArray =
         [...array];
-
 
     for(
         let i =
@@ -1344,7 +1116,6 @@ function shuffleArray(array){
                 (i + 1)
             );
 
-
         [
             newArray[i],
             newArray[j]
@@ -1357,17 +1128,13 @@ function shuffleArray(array){
 
     }
 
-
     return newArray;
-
 }
 
 
-
-/* ==================================
+/* =========================
    ОТКРЫТИЕ ЯЙЦА
-================================== */
-
+========================= */
 
 eggWrapper.addEventListener(
     "click",
@@ -1377,65 +1144,45 @@ eggWrapper.addEventListener(
 
 function openEgg(){
 
-
     if(eggOpened){
         return;
     }
 
-
     eggOpened = true;
-
 
     egg.classList.add(
         "shake"
     );
 
-
     hint.innerHTML =
         "Что спряталось внутри?";
-
-
-    /*
-       сначала трясём
-    */
 
 
     setTimeout(
         () => {
 
-
             eggWrapper.classList.add(
                 "open"
             );
-
 
         },
         550
     );
 
 
-    /*
-       затем показываем героя
-    */
-
-
     setTimeout(
         () => {
-
 
             hero.classList.add(
                 "show"
             );
 
-
             hint.innerHTML =
                 "Назови: «"
                 +
-                levels[currentLevel]
-                .name
+                levels[currentLevel].name
                 +
                 "». Найди точно такую же тень!";
-
 
         },
         1200
@@ -1444,24 +1191,17 @@ function openEgg(){
 }
 
 
-
-/* ==================================
-   ПЕРЕТАСКИВАНИЕ
-================================== */
-
+/* =========================
+   DRAG
+========================= */
 
 let dragging = false;
 
-
 let grabOffsetX = 0;
-
 let grabOffsetY = 0;
 
-
 let originalLeft = 0;
-
 let originalTop = 0;
-
 
 
 hero.addEventListener(
@@ -1469,18 +1209,15 @@ hero.addEventListener(
     startDrag
 );
 
-
 hero.addEventListener(
     "pointermove",
     dragMove
 );
 
-
 hero.addEventListener(
     "pointerup",
     endDrag
 );
-
 
 hero.addEventListener(
     "pointercancel",
@@ -1488,14 +1225,11 @@ hero.addEventListener(
 );
 
 
-
-/* ==================================
+/* =========================
    НАЧАЛО ПЕРЕТАСКИВАНИЯ
-================================== */
-
+========================= */
 
 function startDrag(e){
-
 
     if(
         !eggOpened
@@ -1505,81 +1239,59 @@ function startDrag(e){
         return;
     }
 
-
     e.preventDefault();
 
-
     dragging = true;
-
 
     hero.setPointerCapture(
         e.pointerId
     );
 
-
     const rect =
         hero.getBoundingClientRect();
-
 
     originalLeft =
         rect.left;
 
-
     originalTop =
         rect.top;
-
 
     grabOffsetX =
         e.clientX
         -
         rect.left;
 
-
     grabOffsetY =
         e.clientY
         -
         rect.top;
 
-
     hero.style.position =
         "fixed";
 
-
     hero.style.left =
-        rect.left
-        +
-        "px";
-
+        rect.left + "px";
 
     hero.style.top =
-        rect.top
-        +
-        "px";
-
+        rect.top + "px";
 
     hero.classList.add(
         "dragging"
     );
-
 }
 
 
-
-/* ==================================
+/* =========================
    ДВИЖЕНИЕ
-================================== */
-
+========================= */
 
 function dragMove(e){
-
 
     if(!dragging){
         return;
     }
 
-
     e.preventDefault();
-
 
     hero.style.left =
         (
@@ -1589,7 +1301,6 @@ function dragMove(e){
         )
         +
         "px";
-
 
     hero.style.top =
         (
@@ -1601,12 +1312,6 @@ function dragMove(e){
         "px";
 
 
-    /*
-       подсветка карточки,
-       над которой герой
-    */
-
-
     document
     .querySelectorAll(
         ".shadow-card"
@@ -1614,69 +1319,50 @@ function dragMove(e){
     .forEach(
         card => {
 
+        card.classList.remove(
+            "hover"
+        );
 
-            card.classList.remove(
+        const rect =
+            card
+            .getBoundingClientRect();
+
+        if(
+            e.clientX >= rect.left
+            &&
+            e.clientX <= rect.right
+            &&
+            e.clientY >= rect.top
+            &&
+            e.clientY <= rect.bottom
+        ){
+
+            card.classList.add(
                 "hover"
             );
 
-
-            const rect =
-                card
-                .getBoundingClientRect();
-
-
-            if(
-                e.clientX
-                >=
-                rect.left
-                &&
-                e.clientX
-                <=
-                rect.right
-                &&
-                e.clientY
-                >=
-                rect.top
-                &&
-                e.clientY
-                <=
-                rect.bottom
-            ){
-
-                card.classList.add(
-                    "hover"
-                );
-
-            }
-
-
         }
-    );
+
+    });
 
 }
 
 
-
-/* ==================================
-   ОТПУСКАЕМ ГЕРОЯ
-================================== */
-
+/* =========================
+   ОТПУСКАЕМ
+========================= */
 
 function endDrag(e){
-
 
     if(!dragging){
         return;
     }
 
-
     dragging = false;
-
 
     hero.classList.remove(
         "dragging"
     );
-
 
     let target = null;
 
@@ -1688,42 +1374,29 @@ function endDrag(e){
     .forEach(
         card => {
 
+        card.classList.remove(
+            "hover"
+        );
 
-            card.classList.remove(
-                "hover"
-            );
+        const rect =
+            card
+            .getBoundingClientRect();
 
+        if(
+            e.clientX >= rect.left
+            &&
+            e.clientX <= rect.right
+            &&
+            e.clientY >= rect.top
+            &&
+            e.clientY <= rect.bottom
+        ){
 
-            const rect =
-                card
-                .getBoundingClientRect();
-
-
-            if(
-                e.clientX
-                >=
-                rect.left
-                &&
-                e.clientX
-                <=
-                rect.right
-                &&
-                e.clientY
-                >=
-                rect.top
-                &&
-                e.clientY
-                <=
-                rect.bottom
-            ){
-
-                target = card;
-
-            }
-
+            target = card;
 
         }
-    );
+
+    });
 
 
     if(!target){
@@ -1731,7 +1404,6 @@ function endDrag(e){
         returnHero();
 
         return;
-
     }
 
 
@@ -1741,12 +1413,6 @@ function endDrag(e){
         );
 
 
-    /*
-       ВАРИАНТ 0 =
-       правильная тень
-    */
-
-
     if(variant === 0){
 
         correctAnswer(
@@ -1754,6 +1420,7 @@ function endDrag(e){
         );
 
     }
+
     else{
 
         wrongAnswer(
@@ -1765,11 +1432,9 @@ function endDrag(e){
 }
 
 
-
-/* ==================================
+/* =========================
    CANCEL
-================================== */
-
+========================= */
 
 function cancelDrag(){
 
@@ -1777,32 +1442,24 @@ function cancelDrag(){
         return;
     }
 
-
     dragging = false;
 
-
     returnHero();
-
 }
 
 
-
-/* ==================================
-   НЕПРАВИЛЬНЫЙ ОТВЕТ
-================================== */
-
+/* =========================
+   ОШИБКА
+========================= */
 
 function wrongAnswer(target){
-
 
     target.classList.add(
         "wrong"
     );
 
-
     message.innerHTML =
-        "Не совсем! Посмотри внимательнее 😊";
-
+        "Посмотри внимательнее 😊";
 
     showMessage();
 
@@ -1818,52 +1475,34 @@ function wrongAnswer(target){
         400
     );
 
-
     returnHero();
-
 }
 
 
-
-/* ==================================
-   ПРАВИЛЬНЫЙ ОТВЕТ
-================================== */
-
+/* =========================
+   ПРАВИЛЬНО
+========================= */
 
 function correctAnswer(target){
 
-
     completed = true;
-
 
     target.classList.add(
         "success"
     );
 
-
-    /*
-       герой исчезает,
-       а правильная тень
-       становится цветной
-    */
-
-
     hero.style.display =
         "none";
-
 
     message.innerHTML =
         "Точно! ⭐";
 
-
     showMessage();
-
 
     hint.innerHTML =
         "Правильно! Это «"
         +
-        levels[currentLevel]
-        .name
+        levels[currentLevel].name
         +
         "».";
 
@@ -1877,72 +1516,52 @@ function correctAnswer(target){
         },
         700
     );
-
 }
 
 
-
-/* ==================================
-   ВОЗВРАЩАЕМ ГЕРОЯ
-================================== */
-
+/* =========================
+   ВОЗВРАТ
+========================= */
 
 function returnHero(){
-
 
     hero.style.transition =
         "left .35s ease, top .35s ease";
 
-
     hero.style.left =
-        originalLeft
-        +
-        "px";
-
+        originalLeft + "px";
 
     hero.style.top =
-        originalTop
-        +
-        "px";
+        originalTop + "px";
 
 
     setTimeout(
         () => {
 
-
             hero.style.position =
                 "absolute";
 
-
             hero.style.left = "";
-
             hero.style.top = "";
-
 
             hero.style.transition =
                 "";
 
-
         },
         370
     );
-
 }
 
 
-
-/* ==================================
+/* =========================
    СООБЩЕНИЕ
-================================== */
-
+========================= */
 
 function showMessage(){
-
 
     message.classList.add(
         "show"
     );
-
 
     setTimeout(
         () => {
@@ -1954,15 +1573,12 @@ function showMessage(){
         },
         1100
     );
-
 }
 
 
-
-/* ==================================
+/* =========================
    СЛЕДУЮЩИЙ РАУНД
-================================== */
-
+========================= */
 
 nextBtn.addEventListener(
     "click",
@@ -1972,9 +1588,7 @@ nextBtn.addEventListener(
 
 function nextLevel(){
 
-
     currentLevel++;
-
 
     if(
         currentLevel
@@ -1986,23 +1600,17 @@ function nextLevel(){
             "flex";
 
         return;
-
     }
 
-
     createLevel();
-
 }
 
 
-
-/* ==================================
+/* =========================
    СТАРТ
-================================== */
-
+========================= */
 
 createLevel();
-
 
 </script>
 
